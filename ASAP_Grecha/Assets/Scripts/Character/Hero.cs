@@ -52,14 +52,15 @@ public class Hero : Entity
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, _speed * Time.deltaTime);
 
-        if (dir.x > 0f && _facingRight)
+        _spriteRenderer.flipX = dir.x > 0;
+/*        if (dir.x > 0f && _facingRight)
         {
             Flip();
         }
         if (dir.x < 0f && !_facingRight)
         {
             Flip();
-        }
+        }*/
     }
 
     private void Flip()
