@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
-    public float speed = 20f;
-    public Rigidbody2D rb;
+    [SerializeField]
+    private float _speed = 20f;
+    [SerializeField]
+    private Rigidbody2D _rb;
     void Start()
     {
-        rb.velocity = transform.right * speed;
-
+        _rb.velocity = transform.right * _speed;
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
-
     }
 }

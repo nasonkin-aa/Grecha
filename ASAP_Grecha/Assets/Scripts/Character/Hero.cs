@@ -62,7 +62,6 @@ public class Hero : Entity
             Flip();
 
         }
-
     }
     private void Flip()
     {
