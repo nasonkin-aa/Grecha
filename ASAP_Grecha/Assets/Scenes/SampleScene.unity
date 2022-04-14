@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174982771}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,14 +178,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174982770}
-  m_LocalRotation: {x: 0, y: 0.003926977, z: 0, w: 0.9999923}
-  m_LocalPosition: {x: 12.9, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1254835755}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0.45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &175332540
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 1254835756}
   - component: {fileID: 1254835759}
   - component: {fileID: 1254835758}
+  - component: {fileID: 1254835760}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -503,6 +504,7 @@ MonoBehaviour:
   _speed: 3
   _lives: 5
   _jumpForce: 5
+  _firePoint: {fileID: 174982771}
 --- !u!212 &1254835757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -602,6 +604,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1254835760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254835754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3fd23d83a09c5439bea18977c37c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firePoint: {fileID: 174982771}
+  _bulletPrefab: {fileID: 249879771038340277, guid: 59675a7b50653b443a94f9bf5ec60c04, type: 3}
 --- !u!1 &1357558807
 GameObject:
   m_ObjectHideFlags: 0

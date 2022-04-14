@@ -10,11 +10,13 @@ public class Hero : Entity
     private int _lives = 5;
     [SerializeField]
     private float _jumpForce = 5f;
+    [SerializeField]
+    private Transform _firePoint;
      
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private bool _isGrounded = false;
-    private bool _facingRight = true;
+    private bool _facingRight = false;
     public static Hero Instance { get; set; }
     private void Start()
     {
@@ -49,24 +51,24 @@ public class Hero : Entity
     }
     private void Run()
     {
-        Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, _speed * Time.deltaTime);
-
-        _spriteRenderer.flipX = dir.x > 0;
-/*        if (dir.x > 0f && _facingRight)
+        Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"),0f ,0f);
+        transform.position = transform.position + horizontal *  10f * Time.deltaTime;
+        if (horizontal.x > 0f && _facingRight)
         {
             Flip();
         }
-        if (dir.x < 0f && !_facingRight)
+        if (horizontal.x < 0f && !_facingRight)
         {
             Flip();
-        }*/
-    }
 
+        }
+
+    }
     private void Flip()
     {
         _facingRight = !_facingRight;
         transform.Rotate(0f, 180f, 0f);
+        _firePoint.transform.Rotate(0f, 180f, 0f);
 
     }
     private void Jump()
