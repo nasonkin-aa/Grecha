@@ -16,4 +16,11 @@ public class Axe : MonoBehaviour
     {
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.GetComponent<MovingEnemy>())
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
