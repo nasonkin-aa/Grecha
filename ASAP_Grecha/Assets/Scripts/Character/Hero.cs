@@ -60,7 +60,6 @@ public class Hero : Entity
         if (horizontal.x < 0f && !_facingRight)
         {
             Flip();
-
         }
     }
     private void Flip()

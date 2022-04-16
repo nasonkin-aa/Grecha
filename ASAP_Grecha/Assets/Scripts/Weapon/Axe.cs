@@ -20,6 +20,7 @@ public class Axe : MonoBehaviour
     {
         if (collision.transform.GetComponent<MovingEnemy>())
         {
+            Destroy(gameObject);
             Destroy(collision.gameObject);
         }
     }

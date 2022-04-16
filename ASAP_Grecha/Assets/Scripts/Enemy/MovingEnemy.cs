@@ -11,7 +11,6 @@ public class MovingEnemy : MonoBehaviour
     {
         _dir = transform.right;
     }
-
     private void Move()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.1f + transform.right * _dir.x * 0.7f, 0.1f);
