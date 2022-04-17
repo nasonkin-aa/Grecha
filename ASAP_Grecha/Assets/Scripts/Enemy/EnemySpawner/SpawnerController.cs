@@ -27,7 +27,7 @@ public class SpawnerController : MonoBehaviour
     {
         while (_maxEnemy > 0)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
             _maxEnemy--;
             _enemySpawner.SpawnEnemy();
         }

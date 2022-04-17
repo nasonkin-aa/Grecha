@@ -18,20 +18,14 @@ public class MovingEnemy : Entity
     void Start()
     {
         _dir = transform.right;
+    }
+    void Update()
+    {
+        Move(); 
         if (InstanceEnemy == null)
         {
             InstanceEnemy = this;
         }
-        else if (InstanceEnemy == this)
-        {
-            Destroy(gameObject);
-        }
-
-    }
- 
-    void Update()
-    {
-        Move(); 
     }
     private void Move()
     {
@@ -47,7 +41,6 @@ public class MovingEnemy : Entity
         if (collision.gameObject == Hero.Instance.gameObject)
         {
             Hero.Instance.GetDamage(_damageEnemy);
-            
         }
     }
     public override void GetDamage(float damage)
@@ -56,13 +49,10 @@ public class MovingEnemy : Entity
         {
             _liveEnemy -= damage;
         }
-        else if(_liveEnemy <= 0)
+        if(_liveEnemy <= 0)
         {
             Die();
         }
         Debug.Log(_liveEnemy);
     }
-
-
-
 }
