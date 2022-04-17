@@ -9,15 +9,15 @@ public class SpawnerController : MonoBehaviour
     [SerializeField]
     private EnemySpawner[] _groundSpawner;*/
     [SerializeField]
-    private int _maxEnemy = 100;
+    private int _maxEnemy;
     protected GameObject _enemyPrefab;
     [SerializeField]
     private EnemySpawner _enemySpawner;
 
 
-    private int DethEmemy;
-    private bool IsNight;
-
+    private int _dethEmemy;
+    private bool _isNight;
+    private bool _maxVave;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class SpawnerController : MonoBehaviour
     {
         while (_maxEnemy > 0)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             _maxEnemy--;
             _enemySpawner.SpawnEnemy();
         }

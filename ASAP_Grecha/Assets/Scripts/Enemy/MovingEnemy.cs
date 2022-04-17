@@ -2,14 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingEnemy : MonoBehaviour 
+public class MovingEnemy : Entity
 {
-    private float _speed = 4f;
+    [SerializeField]
+    private float _speedEnemy = 4f;
+    [SerializeField]
+    private float _liveEnemy = 100f;
+    [SerializeField]
+    private float _damageEnemy = 20f;
+    public static MovingEnemy InstanceEnemy { get; set; }
+
     private Vector3 _dir;
     private SpriteRenderer _spriteRenderer;
+
     void Start()
     {
         _dir = transform.right;
+        if (InstanceEnemy == null)
+        {
+            InstanceEnemy = this;
+        }
+        else if (InstanceEnemy == this)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+ 
+    void Update()
+    {
+        Move(); 
     }
     private void Move()
     {
@@ -24,13 +46,23 @@ public class MovingEnemy : MonoBehaviour
     {
         if (collision.gameObject == Hero.Instance.gameObject)
         {
-            Hero.Instance.GetDamage();
+            Hero.Instance.GetDamage(_damageEnemy);
+            
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void GetDamage(float damage)
     {
-        Move(); 
+        if (_liveEnemy > 0)
+        {
+            _liveEnemy -= damage;
+        }
+        else if(_liveEnemy <= 0)
+        {
+            Die();
+        }
+        Debug.Log(_liveEnemy);
     }
+
+
+
 }

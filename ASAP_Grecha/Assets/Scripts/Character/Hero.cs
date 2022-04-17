@@ -7,7 +7,7 @@ public class Hero : Entity
     [SerializeField] 
     private float _speed = 3f;
     [SerializeField]
-    private int _lives = 5;
+    private float _livesHero = 100;
     [SerializeField]
     private float _jumpForce = 5f;
     [SerializeField]
@@ -79,17 +79,17 @@ public class Hero : Entity
         _isGrounded = collider.Length > 1;
     }
 
-    public override void GetDamage()
+    public override void GetDamage(float damege)
     {
-        if (_lives > 0)
+        if (_livesHero > 0)
         {
-            _lives -= 1;
+            _livesHero -= damege;
         }
         else
         {
             Die();
         }
-        Debug.Log(_lives);
+        Debug.Log(_livesHero);
     }
 
 }
