@@ -10,8 +10,8 @@ public class Axe : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField]
     private float _damageAxe = 50;
-    [SerializeField]
-    private MovingEnemy _movingEnemy;
+   /* [SerializeField]
+    private MovingEnemy _movingEnemy;*/
     void Start()
     {
         _rb.velocity = transform.right * _speed;
@@ -24,7 +24,7 @@ public class Axe : MonoBehaviour
     {
         if (collision.transform.GetComponent<MovingEnemy>())
         {
-            MovingEnemy.InstanceEnemy.GetDamage(_damageAxe);
+            collision.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
             Destroy(gameObject);
         }
     }

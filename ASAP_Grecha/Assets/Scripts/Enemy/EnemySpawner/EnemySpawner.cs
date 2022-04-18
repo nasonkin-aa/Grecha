@@ -9,9 +9,11 @@ public class EnemySpawner: MonoBehaviour
     private Vector3 _position;
     private Quaternion _rotation;
   
-    public void SpawnEnemy()
+
+    public void SpawnEnemy(SpawnerController spawnerController)
     {
-        Instantiate(_prefab, transform.position, transform.rotation);
+        GameObject Enemy = Instantiate(_prefab, transform.position, transform.rotation);
+        Enemy.GetComponentInChildren<MovingEnemy>().SpawnerController = spawnerController;
         //StartCoroutine(SpawnerCd());
     }
     /*IEnumerator SpawnerCd()

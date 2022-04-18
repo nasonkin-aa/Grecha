@@ -136,6 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27174236641412a429906a7c70f4974f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedEnemy: 4
+  _liveEnemy: 100
+  _damageEnemy: 20
+  SpawnerController: {fileID: 0}
 --- !u!1 &6989050600831942766
 GameObject:
   m_ObjectHideFlags: 0

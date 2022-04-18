@@ -14,10 +14,9 @@ public class SpawnerController : MonoBehaviour
     [SerializeField]
     private EnemySpawner _enemySpawner;
 
-
-    private int _dethEmemy;
-    private bool _isNight;
-    private bool _maxVave;
+    public int DethEmemy;
+    private bool _isNight = false;
+    private int _maxVave = 0;
 
     void Start()
     {
@@ -25,15 +24,27 @@ public class SpawnerController : MonoBehaviour
     }
     IEnumerator Spawner()
     {
-        while (_maxEnemy > 0)
+        DethEmemy = _maxEnemy;
+        int enemyCounter = _maxEnemy;
+        while (enemyCounter > 0)
         {
-            yield return new WaitForSeconds(2);
-            _maxEnemy--;
-            _enemySpawner.SpawnEnemy();
+            yield return new WaitForSeconds(1);
+            enemyCounter--;
+            _enemySpawner.SpawnEnemy(this);
         }
+        Debug.Log("End spawn");
+        _isNight = true;
+        _maxEnemy += 3;
+
     }
-    void Update()
+    private void Update()
     {
-        
+      if( _isNight && _maxVave < 3 && DethEmemy == 0)
+        {
+            Debug.Log("new vave");
+            _maxVave++;
+            StartCoroutine(Spawner());
+
+        }
     }
 }

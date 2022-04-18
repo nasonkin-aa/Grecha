@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29a11d586f458a44966d598142bc273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxEnemy: 100
+  _maxEnemy: 3
   _enemySpawner: {fileID: 812638772}
 --- !u!4 &1767901630
 Transform:

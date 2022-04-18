@@ -10,6 +10,8 @@ public class MovingEnemy : Entity
     private float _liveEnemy = 100f;
     [SerializeField]
     private float _damageEnemy = 20f;
+
+    public SpawnerController SpawnerController;
     public static MovingEnemy InstanceEnemy { get; set; }
 
     private Vector3 _dir;
@@ -22,7 +24,7 @@ public class MovingEnemy : Entity
     void Update()
     {
         Move(); 
-        if (InstanceEnemy == null)
+        if (InstanceEnemy == null)//??
         {
             InstanceEnemy = this;
         }
@@ -51,6 +53,8 @@ public class MovingEnemy : Entity
         }
         if(_liveEnemy <= 0)
         {
+            SpawnerController.DethEmemy--;
+            Debug.Log(SpawnerController.DethEmemy);
             Die();
         }
         Debug.Log(_liveEnemy);
