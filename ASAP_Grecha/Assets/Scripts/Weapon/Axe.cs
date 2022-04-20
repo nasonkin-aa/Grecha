@@ -10,6 +10,7 @@ public class Axe : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField]
     private float _damageAxe = 50;
+    
    /* [SerializeField]
     private MovingEnemy _movingEnemy;*/
     void Start()
@@ -21,8 +22,8 @@ public class Axe : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
-      
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.GetComponent<MovingEnemy>())

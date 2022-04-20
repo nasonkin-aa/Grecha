@@ -13,6 +13,12 @@ public class SpawnerController : MonoBehaviour
     protected GameObject _enemyPrefab;
     [SerializeField]
     private EnemySpawner _enemySpawner;
+    [SerializeField]
+    private Totem _totem;
+    [SerializeField]
+    private Hero _hero;
+
+
 
     public int DethEmemy;
     private bool _isNight = false;
@@ -30,12 +36,11 @@ public class SpawnerController : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             enemyCounter--;
-            _enemySpawner.SpawnEnemy(this);
+            _enemySpawner.SpawnEnemy(this,_hero,_totem);
         }
         Debug.Log("End spawn");
         _isNight = true;
         _maxEnemy += 3;
-
     }
     private void Update()
     {

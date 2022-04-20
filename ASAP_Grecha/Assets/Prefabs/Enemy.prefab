@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6989050599407256598
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,6 +139,9 @@ MonoBehaviour:
   _speedEnemy: 4
   _liveEnemy: 100
   _damageEnemy: 20
+  _facingRight: 0
+  Totem: {fileID: 0}
+  Hero: {fileID: 0}
   SpawnerController: {fileID: 0}
 --- !u!1 &6989050600831942766
 GameObject:

@@ -67,7 +67,6 @@ public class Hero : Entity
         _facingRight = !_facingRight;
         transform.Rotate(0f, 180f, 0f);
         _firePoint.transform.Rotate(0f, 180f, 0f);
-
     }
     private void Jump()
     {
@@ -91,5 +90,4 @@ public class Hero : Entity
         }
         Debug.Log(_livesHero);
     }
-
 }

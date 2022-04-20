@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private CameraController _cameraController;
+    //private CameraController _cameraController;
     public virtual void GetDamage(float damage) {}
     public virtual void Die()
     {
