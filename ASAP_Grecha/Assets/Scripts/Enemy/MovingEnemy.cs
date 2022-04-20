@@ -37,16 +37,17 @@ public class MovingEnemy : Entity
     private void Move()
     {
 
-        Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-
+        
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.1f + transform.right * _dir.x * 0.7f, 0.1f);
         transform.position = Vector3.MoveTowards(transform.position, Totem.transform.position, Time.deltaTime);
-        if (horizontal.x > 0f && _facingRight)
+        if (transform.position.x > Totem.transform.position.x && _facingRight)
         {
+            Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
-        if (horizontal.x < 0f && !_facingRight)
+        if (transform.position.x < Totem.transform.position.x  && !_facingRight)
         {
+            Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
     }
