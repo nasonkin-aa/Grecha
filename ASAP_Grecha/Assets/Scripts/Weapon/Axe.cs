@@ -5,7 +5,7 @@ using UnityEngine;
 public class Axe : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 20f;
+    private float _speed = 10f;
     [SerializeField]
     private Rigidbody2D _rb;
     [SerializeField]
@@ -14,11 +14,14 @@ public class Axe : MonoBehaviour
     private MovingEnemy _movingEnemy;*/
     void Start()
     {
-        _rb.velocity = transform.right * _speed;
+        Vector2 _mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 _derection = _mousPos - new Vector2(transform.position.x, transform.position.y);
+        _rb.velocity = _derection.normalized * _speed;
     }
     void Update()
     {
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

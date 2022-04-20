@@ -16,6 +16,9 @@ public class Weapon : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(_bulletPrefab, _firePoint.position,_firePoint.localRotation);
+       
+        GameObject Axe = Instantiate(_bulletPrefab, _firePoint.position,_firePoint.localRotation);
+       // Axe.transform.position = 
     }
 }
+    
