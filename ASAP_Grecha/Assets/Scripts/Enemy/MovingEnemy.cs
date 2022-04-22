@@ -23,11 +23,13 @@ public class MovingEnemy : Entity
     public static MovingEnemy InstanceEnemy { get; set; }
 
     private Vector3 _dir;
+    private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
-
     void Start()
     {
-        _dir = transform.right;
+        _dir = Vector3.zero;
+        _rb = transform.GetComponent<Rigidbody2D>();
+
     }
     void Update()
     {
@@ -41,27 +43,35 @@ public class MovingEnemy : Entity
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 5f);
 
-        List<GameObject> list = collider.OfType<Collider2D>().ToList().ConvertAll(b => b.gameObject);
+        List<GameObject> list = collider.ToList().ConvertAll(b => b.gameObject);
         if (list.Contains(Hero.Instance.gameObject))
         {
-            transform.position = Vector2.MoveTowards(transform.position, Hero.Instance.transform.position, _speedEnemy * Time.deltaTime);
+            _dir = Hero.Instance.transform.position - transform.position;
+            _dir.y = 0;
+            _dir.z = -0.10f;
+            _rb.velocity = _dir.normalized * _speedEnemy;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, Totem.transform.position, _speedEnemy * Time.deltaTime);
+            _dir = Totem.transform.position - transform.position;
+            _dir.y = 0;
+            _dir.z = -0.10f;
+            _rb.velocity = _dir.normalized * _speedEnemy;
         }
+    
        
-        if (transform.position.x < Totem.transform.position.x && _facingRight)
+        if ( _rb.velocity.x > 0 && _facingRight)
         {
             Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
-        if (transform.position.x > Totem.transform.position.x  && !_facingRight)
+        if (_rb.velocity.x < 0 && !_facingRight)
         {
             Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
     }
+  
 
     private void Flip()
     {

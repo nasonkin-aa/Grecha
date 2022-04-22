@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27174236641412a429906a7c70f4974f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedEnemy: 1
+  _speedEnemy: 3
   _liveEnemy: 100
   _damageEnemy: 20
   _facingRight: 0
@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
