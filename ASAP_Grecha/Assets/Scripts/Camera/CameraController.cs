@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 _newPosition = _player.position;
         _newPosition.z = -10f;
-        _newPosition.y = 1;
+        _newPosition.y = 0.5f;
         transform.position = Vector3.Slerp(transform.position, _newPosition, _FollowSpeeds * Time.deltaTime);
 
         if (_shakeDuration > 0)

@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MovingEnemy : Entity
 {
     [SerializeField]
-    private float _speedEnemy = 4f;
+    private float _speedEnemy = 5f;
     [SerializeField]
     private float _liveEnemy = 100f;
     [SerializeField]
     private float _damageEnemy = 20f;
     [SerializeField]
     private bool _facingRight = false;
+    [SerializeField]
+    
 
     public Totem Totem;
     public Hero Hero;
@@ -36,21 +39,30 @@ public class MovingEnemy : Entity
     }
     private void Move()
     {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 5f);
 
-        
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.1f + transform.right * _dir.x * 0.7f, 0.1f);
-        transform.position = Vector3.MoveTowards(transform.position, Totem.transform.position, Time.deltaTime);
-        if (transform.position.x > Totem.transform.position.x && _facingRight)
+        List<GameObject> list = collider.OfType<Collider2D>().ToList().ConvertAll(b => b.gameObject);
+        if (list.Contains(Hero.Instance.gameObject))
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Hero.Instance.transform.position, _speedEnemy * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Totem.transform.position, _speedEnemy * Time.deltaTime);
+        }
+       
+        if (transform.position.x < Totem.transform.position.x && _facingRight)
         {
             Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
-        if (transform.position.x < Totem.transform.position.x  && !_facingRight)
+        if (transform.position.x > Totem.transform.position.x  && !_facingRight)
         {
             Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
     }
+
     private void Flip()
     {
         _facingRight = !_facingRight;
