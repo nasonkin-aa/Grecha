@@ -10,7 +10,7 @@ public class Axe : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField]
     private float _damageAxe = 50;
-    
+    private Collider2D[] collider;
    /* [SerializeField]
     private MovingEnemy _movingEnemy;*/
     void Start()
@@ -21,16 +21,35 @@ public class Axe : MonoBehaviour
     }
     void Update()
     {
+        OnAxeEnter();
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnAxeEnter()
+    { 
+        collider = Physics2D.OverlapCircleAll(transform.position, 1f);
+        
+        foreach (Collider2D a in collider)
+        {
+            if (a.transform.GetComponent<MovingEnemy>())
+            {
+                a.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
+                Destroy(gameObject);
+                break;
+            }
+        }
+    }
+  /*  private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.GetComponent<MovingEnemy>())
         {
-            collision.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
             Destroy(gameObject);
+            foreach(Collider2D a in collider)
+            {
+                a.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
+                break;
+            } 
         }
-    }
+    }*/
 
 }
