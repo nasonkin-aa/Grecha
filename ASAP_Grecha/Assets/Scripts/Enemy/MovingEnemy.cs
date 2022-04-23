@@ -29,7 +29,7 @@ public class MovingEnemy : Entity
     {
         _dir = Vector3.zero;
         _rb = transform.GetComponent<Rigidbody2D>();
-
+        //Physics2D.IgnoreLayerCollision(6,7);
     }
     void Update()
     {
@@ -46,7 +46,7 @@ public class MovingEnemy : Entity
         List<GameObject> list = collider.ToList().ConvertAll(b => b.gameObject);
         if (list.Contains(Hero.Instance.gameObject))
         {
-            _dir = Hero.Instance.transform.position - transform.position;
+            _dir = Hero.Instance.transform.position - transform.position;//fix
             _dir.y = 0;
             _dir.z = -0.10f;
             _rb.velocity = _dir.normalized * _speedEnemy;
@@ -58,7 +58,6 @@ public class MovingEnemy : Entity
             _dir.z = -0.10f;
             _rb.velocity = _dir.normalized * _speedEnemy;
         }
-    
        
         if ( _rb.velocity.x > 0 && _facingRight)
         {
