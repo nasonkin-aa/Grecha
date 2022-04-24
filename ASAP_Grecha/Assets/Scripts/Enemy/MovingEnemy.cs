@@ -38,6 +38,9 @@ public class MovingEnemy : Entity
         {
             InstanceEnemy = this;
         }
+        AttackOfEnemy();
+
+
     }
     private void Move()
     {
@@ -61,17 +64,13 @@ public class MovingEnemy : Entity
        
         if ( _rb.velocity.x > 0 && _facingRight)
         {
-            Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
         if (_rb.velocity.x < 0 && !_facingRight)
         {
-            Debug.Log(transform.localPosition.normalized.x);
             Flip();
         }
     }
-  
-
     private void Flip()
     {
         _facingRight = !_facingRight;
@@ -99,4 +98,26 @@ public class MovingEnemy : Entity
         }
         Debug.Log(_liveEnemy);
     }
+    private void AttackOfEnemy()
+    {
+        Vector2 velocity;
+        if (_facingRight)
+        {
+            velocity = new Vector2(-1, 0);
+        }
+        else
+        {
+            velocity = new Vector2(1, 0);
+        }
+        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 newPosition =  velocity;
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(currentPosition,newPosition);
+
+        Debug.DrawRay(currentPosition,newPosition, Color.red);
+        
+        //Debug.DrawLine(currentPosition, newPosition, Color.red);
+    }
+
+
+
 }

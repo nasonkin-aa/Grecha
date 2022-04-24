@@ -27,7 +27,7 @@ public class Axe : MonoBehaviour
 
     private void OnAxeEnter()
     { 
-        collider = Physics2D.OverlapCircleAll(transform.position, 1f);
+        collider = Physics2D.OverlapCircleAll(transform.position, 0.7f);
         
         foreach (Collider2D a in collider)
         {

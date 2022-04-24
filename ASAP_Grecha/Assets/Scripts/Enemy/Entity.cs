@@ -10,4 +10,5 @@ public class Entity : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+   // public virtual void SetDamage(float damage) {}
 }
