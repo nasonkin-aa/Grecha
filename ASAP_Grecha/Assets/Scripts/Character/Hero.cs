@@ -42,6 +42,7 @@ public class Hero : Entity
     private void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); // Передаю в анимацию скорость персонажа
+        animator.SetBool("IsJumping", !_isGrounded); // Передаю в анимацию, находится ли он на поверхности
         if (Input.GetButton("Horizontal"))
         {
             Run();
