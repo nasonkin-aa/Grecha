@@ -387,7 +387,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: f3f0f6db73a429a448379bc263a8b395, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 880ce5bcd868b6c4f8111d8318ccfa93, type: 2}
 --- !u!114 &305522694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +404,8 @@ MonoBehaviour:
   ppv: {fileID: 0}
   tick: 1
   seconds: 0
+  days: 0
+  secCycle: 20
   activateLights: 0
   lights:
   - {fileID: 1006909459}
@@ -570,7 +572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428678980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.33, y: 5.85, z: 0}
+  m_LocalPosition: {x: -10.54, y: 0.59, z: 0}
   m_LocalScale: {x: 0.24990118, y: 0.24990118, z: 0.24990118}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -821,7 +823,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1200,7 +1202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006909460}
   - component: {fileID: 1006909461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2915,7 +2917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105492493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.68, y: 5.51, z: 0}
+  m_LocalPosition: {x: -1.34, y: 0.35, z: 0}
   m_LocalScale: {x: 0.24990118, y: 0.24990118, z: 0.24990118}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3010,8 +3012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: 192}
-  m_SizeDelta: {x: 307.73, y: 70.63}
+  m_AnchoredPosition: {x: 193, y: 121}
+  m_SizeDelta: {x: 301.64, y: 70.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1470158751
 MonoBehaviour:
@@ -3033,7 +3035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
@@ -3060,8 +3062,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3784,7 +3786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017002283}
   - component: {fileID: 2017002284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
