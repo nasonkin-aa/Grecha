@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero : Entity
 {
     [SerializeField] 
-    private float _speed = 3f;
+    private float _speed = 0f;
     [SerializeField]
     private float _livesHero = 100;
     [SerializeField]
@@ -18,6 +18,7 @@ public class Hero : Entity
     private bool _isGrounded = false;
     private bool _facingRight = false;
     public static Hero Instance { get; set; }
+    public Animator animator; 
     private void Start()
     {
         if (Instance == null)
@@ -40,6 +41,8 @@ public class Hero : Entity
     }
     private void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); // ������� � �������� �������� ���������
+        animator.SetBool("IsJumping", !_isGrounded); // ������� � ��������, ��������� �� �� �� �����������
         if (Input.GetButton("Horizontal"))
         {
             Run();
@@ -53,6 +56,7 @@ public class Hero : Entity
     {
         Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"),0f ,0f);
         transform.position = transform.position + horizontal *  10f * Time.deltaTime;
+
         if (horizontal.x > 0f && _facingRight)
         {
             Flip();
@@ -81,7 +85,7 @@ public class Hero : Entity
     {
         if (_livesHero > 0)
         {
-            _livesHero -= damege;
+            _livesHero -= damage;
         }
         else
         {
