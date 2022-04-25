@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4589147166187947852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4589147167553478946}
   - component: {fileID: 4589147167553478944}
   - component: {fileID: 2982723674129435150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeroPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

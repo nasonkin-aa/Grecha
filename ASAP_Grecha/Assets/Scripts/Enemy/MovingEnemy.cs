@@ -13,8 +13,11 @@ public class MovingEnemy : Entity
     private float _damageEnemy = 20f;
     [SerializeField]
     private bool _facingRight = false;
-    [SerializeField]
-    
+    [SerializeField] 
+    private LayerMask _layerMask;
+
+    private bool _playerInZoneAttack;
+    private bool _isAttack =true;
 
     public Totem Totem;
     public Hero Hero;
@@ -77,13 +80,13 @@ public class MovingEnemy : Entity
         transform.Rotate(0f, 180f, 0f);
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+  /*  private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == Hero.Instance.gameObject)
         {
-            Hero.Instance.GetDamage(_damageEnemy);
+            
         }
-    } 
+    } */
     public override void GetDamage(float damage)
     {
         if (_liveEnemy > 0)
@@ -111,11 +114,29 @@ public class MovingEnemy : Entity
         }
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 newPosition =  velocity;
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(currentPosition,newPosition);
+        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,3,_layerMask);
 
-        Debug.DrawRay(currentPosition,newPosition, Color.red);
-        
-        //Debug.DrawLine(currentPosition, newPosition, Color.red);
+        List<GameObject> listHits = raycastHit2D.ToList().ConvertAll(b => b.collider.gameObject);
+        Debug.DrawRay(currentPosition, newPosition, Color.red);
+
+        if (listHits.Contains(Hero.Instance.gameObject) && _isAttack)
+        {
+            _playerInZoneAttack = true;
+            _isAttack = false;
+            StartCoroutine(DelayAttack());
+            Debug.Log("1");
+        }
+    }
+    IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(1);
+        if (_playerInZoneAttack)
+        {
+            Hero.Instance.GetDamage(_damageEnemy);
+        }
+        _isAttack=true; 
+        Debug.Log("2");
+
     }
 
 

@@ -103,6 +103,9 @@ MonoBehaviour:
   _liveEnemy: 100
   _damageEnemy: 20
   _facingRight: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
   Totem: {fileID: 0}
   Hero: {fileID: 0}
   SpawnerController: {fileID: 0}
