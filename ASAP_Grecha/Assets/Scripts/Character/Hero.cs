@@ -81,7 +81,7 @@ public class Hero : Entity
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 2f);
         _isGrounded = collider.Length > 1;
     }
-    public override void GetDamage(float damege)
+    public override void GetDamage(float damage)
     {
         if (_livesHero > 0)
         {
