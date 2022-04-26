@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform _firePoint;
     public GameObject _bulletPrefab;
+    //public int timeDelayAttack = 2;
 
     private void Update()
     {
