@@ -12,7 +12,10 @@ public class Hero : Entity
     private float _jumpForce = 5f;
     [SerializeField]
     private Transform _firePoint;
-     
+    [SerializeField]
+    public int soulCount = 0;
+
+
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private bool _isGrounded = false;

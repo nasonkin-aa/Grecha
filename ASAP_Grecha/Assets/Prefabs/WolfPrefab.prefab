@@ -107,6 +107,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 2147483647
+  lootDrop: {fileID: 806067450300971392, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
   Totem: {fileID: 0}
   Hero: {fileID: 0}
   animator: {fileID: 6336499979513366814}
