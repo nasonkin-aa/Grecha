@@ -1,3 +1,4 @@
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,8 @@ public class SpawnerController : MonoBehaviour
     private Totem _totem;
     [SerializeField]
     private Hero _hero;
-
-
+    [SerializeField]
+    private EnemySpawner[] _spawners ;
 
     public int DethEmemy;
     private bool _isNight = false;
@@ -26,17 +27,21 @@ public class SpawnerController : MonoBehaviour
 
     void Start()
     {
+        _spawners = FindObjectsOfType<EnemySpawner>();
         StartCoroutine(Spawner());
     }
+
     IEnumerator Spawner()
     {
         DethEmemy = _maxEnemy;
         int enemyCounter = _maxEnemy;
+        int SpavnerNumber ;
         while (enemyCounter > 0)
         {
             yield return new WaitForSeconds(1);
             enemyCounter--;
-            _enemySpawner.SpawnEnemy(this,_hero,_totem);
+            SpavnerNumber = Random.Range(0, _spawners.Length);
+            _spawners[SpavnerNumber].SpawnEnemy(this,_totem);
         }
         Debug.Log("End spawn");
         _isNight = true;

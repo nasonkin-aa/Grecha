@@ -21,7 +21,7 @@ public class MovingEnemy : Entity
 
     public Totem Totem;
     public Hero Hero;
-    Animator animator;
+    public Animator animator;
 
     public SpawnerController SpawnerController;
     public static MovingEnemy InstanceEnemy { get; set; }
@@ -125,11 +125,11 @@ public class MovingEnemy : Entity
             animator.SetBool("IsAttack", true);
             _playerInZoneAttack = true;
             _isAttack = false;
-            StartCoroutine(DelayAttack());
+            //StartCoroutine(DelayAttack());
             Debug.Log("1");
         }
     }
-    IEnumerator DelayAttack()
+   /* IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(1);
         if (_playerInZoneAttack)
@@ -139,7 +139,7 @@ public class MovingEnemy : Entity
         _isAttack=true; 
         Debug.Log("2");
 
-    }
+    }*/
 
 
 
