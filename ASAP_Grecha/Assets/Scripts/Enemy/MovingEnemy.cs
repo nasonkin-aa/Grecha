@@ -124,21 +124,19 @@ public class MovingEnemy : Entity
         {
             _playerInZoneAttack = true;
             _isAttack = false;
-            //StartCoroutine(DelayAttack());
             Debug.Log("1");
         }
     }
-   /* IEnumerator DelayAttack()
+    public void DelayAttack()
     {
-        yield return new WaitForSeconds(1);
         if (_playerInZoneAttack)
         {
             Hero.Instance.GetDamage(_damageEnemy);
         }
-        _isAttack=true; 
+        _isAttack = true;
         Debug.Log("2");
 
-    }*/
+    }
 
 
 
