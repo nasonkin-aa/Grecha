@@ -44,8 +44,6 @@ public class MovingEnemy : Entity
             InstanceEnemy = this;
         }
         AttackOfEnemy();
-
-
     }
     private void Move()
     {
@@ -94,6 +92,7 @@ public class MovingEnemy : Entity
         if (_liveEnemy > 0)
         {
             _liveEnemy -= damage;
+            DamagePopup.Create(transform.position, (int) damage);
         } 
         if(_liveEnemy <= 0)
         {
