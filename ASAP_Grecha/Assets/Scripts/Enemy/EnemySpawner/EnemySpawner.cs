@@ -10,11 +10,12 @@ public class EnemySpawner: MonoBehaviour
     private Quaternion _rotation;
   
 
-    public void SpawnEnemy(GameObject prefabEnemy,SpawnerController spawnerController,Totem totem)
+    public void SpawnEnemy(GameObject prefabEnemy,SpawnerController spawnerController,Totem totem,Camp camp)
     {
         GameObject Enemy = Instantiate(prefabEnemy, transform.position, transform.rotation);
         Enemy.GetComponentInChildren<MovingEnemy>().SpawnerController = spawnerController;
         Enemy.GetComponentInChildren<MovingEnemy>().Totem = totem;
+        Enemy.GetComponentInChildren<MovingEnemy>().Camp = camp;
         //StartCoroutine(SpawnerCd());
     }
 

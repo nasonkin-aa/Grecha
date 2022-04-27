@@ -23,6 +23,8 @@ public class SpawnerController : MonoBehaviour
     private Hero _hero;
     [SerializeField]
     private EnemySpawner[] _spawners ;
+    [SerializeField]
+    private Camp _camp;
 
     public int DethEmemy;
     private bool _isNight = false;
@@ -38,7 +40,6 @@ public class SpawnerController : MonoBehaviour
     {
         DethEmemy = _maxEnemy;
         int enemyCounter = _maxEnemy;
-        int SpavnerNumber ;
         while (enemyCounter > 0)
         {
             int SpawnPlace = Random.Range(0, _spawners.Length);
@@ -47,11 +48,11 @@ public class SpawnerController : MonoBehaviour
             if (SpawnPlace < 2)
             {
                 //SpavnerNumber = Random.Range(0, _spawners.Length);
-                _spawners[SpawnPlace].SpawnEnemy(_enemyBirdPrefab,this, _totem);
+                _spawners[SpawnPlace].SpawnEnemy(_enemyBirdPrefab,this, _totem, _camp);
             }
             else
             {
-                _spawners[SpawnPlace].SpawnEnemy(_enemyWolfPrefab, this, _totem);
+                _spawners[SpawnPlace].SpawnEnemy(_enemyWolfPrefab, this, _totem,_camp);
             }
         }
         Debug.Log("End spawn");

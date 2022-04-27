@@ -32,6 +32,7 @@ public class MovingEnemy : Entity
     public Totem Totem;
     public Hero Hero;
     public Animator animator;
+    public Camp Camp;
 
     public SpawnerController SpawnerController;
     public static MovingEnemy InstanceEnemy { get; set; }
@@ -47,24 +48,46 @@ public class MovingEnemy : Entity
     }
     void Update()
     {
+        if (InstanceEnemy == null)//??
+        {
+            InstanceEnemy = this;
+        }
         switch (typeEnemy)
         {
 
             case TypeEnemy.wolf:
                 animator.SetBool("IsAttack", !_isAttack);
-                Move();
-                if (InstanceEnemy == null)//??
-                {
-                    InstanceEnemy = this;
-                }
+                MoveWolf();
                 AttackOfEnemy();
                 break;
             case TypeEnemy.Bird:
+                MoveBird();
                 break;
         }
 
     }
-    private void Move()
+    private void MoveBird()
+    {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 2f);
+
+        List<GameObject> list = collider.ToList().ConvertAll(b => b.gameObject);
+        if (list.Contains(Camp.transform.gameObject))
+        {
+            _dir = Camp.transform.position - transform.position;
+            //_dir.y = 0;
+            _dir.z = -0.10f;
+            _rb.velocity = _dir.normalized * _speedEnemy;
+        }
+        else
+        {
+            _dir = Totem.transform.position - transform.position;//fix
+            _dir.y = 0;
+            _dir.z = -0.10f;
+            _rb.velocity = -transform.position.normalized * _speedEnemy;
+        }
+        CheckeFlipp();
+    }
+    private void MoveWolf()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 5f);
 
@@ -83,8 +106,12 @@ public class MovingEnemy : Entity
             _dir.z = -0.10f;
             _rb.velocity = _dir.normalized * _speedEnemy;
         }
-       
-        if ( _rb.velocity.x > 0 && _facingRight)
+
+        CheckeFlipp(); 
+    }
+    private void CheckeFlipp()
+    {
+        if (_rb.velocity.x > 0 && _facingRight)
         {
             Flip();
         }
@@ -134,6 +161,7 @@ public class MovingEnemy : Entity
         {
             velocity = new Vector2(1, 0);
         }
+
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 newPosition =  velocity;
         RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,2.3f,_layerMask);
@@ -148,6 +176,7 @@ public class MovingEnemy : Entity
             Debug.Log("1");
         }
     }
+  
     public void PlayerInZoneAttack()
     {
         if (listHits.Contains(Hero.Instance.gameObject))
@@ -156,8 +185,6 @@ public class MovingEnemy : Entity
             Hero.Instance.GetDamage(_damageEnemy);
         }
         // if (_playerInZoneAttack)
-        
-        
         _isAttack = true;
         Debug.Log("2");
 
