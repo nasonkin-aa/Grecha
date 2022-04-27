@@ -39,10 +39,6 @@ public class CursorManager : MonoBehaviour
             currentFrame = (currentFrame + 1) % frameCount;
             Cursor.SetCursor(cursorAnimation.textureArray[currentFrame], cursorAnimation.offset, CursorMode.Auto);
         }
-
-        if (Input.GetKeyDown(KeyCode.Z)) SetActiveCursorAnimation(cursorAnimationList[0]);
-
-        if (Input.GetKeyDown(KeyCode.X)) ;
     }
 
     public void SetActiveCursorType (CursorType cursorType)
