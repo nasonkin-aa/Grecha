@@ -92,7 +92,7 @@ public class MovingEnemy : Entity
         if (_liveEnemy > 0)
         {
             _liveEnemy -= damage;
-            DamagePopup.Create(transform.position, (int) damage);
+            DamagePopup.Create(transform.localPosition, (int) damage);
         } 
         if(_liveEnemy <= 0)
         {
