@@ -16,6 +16,7 @@ public class MovingEnemy : Entity
     [SerializeField] 
     private LayerMask _layerMask;
 
+    private List<GameObject> listHits;
     private bool _playerInZoneAttack;
     private bool _isAttack =true;
 
@@ -115,24 +116,28 @@ public class MovingEnemy : Entity
         }
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 newPosition =  velocity;
-        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,3,_layerMask);
+        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,2.3f,_layerMask);
 
-        List<GameObject> listHits = raycastHit2D.ToList().ConvertAll(b => b.collider.gameObject);
-        Debug.DrawRay(currentPosition, newPosition, Color.red);
+        listHits = raycastHit2D.ToList().ConvertAll(b => b.collider.gameObject);
+        Debug.DrawRay(currentPosition, newPosition * 2.3f, Color.red);
 
         if (listHits.Contains(Hero.Instance.gameObject) && _isAttack)
         {
-            _playerInZoneAttack = true;
+            //_playerInZoneAttack = true;
             _isAttack = false;
             Debug.Log("1");
         }
     }
-    public void DelayAttack()
+    public void PlayerInZoneAttack()
     {
-        if (_playerInZoneAttack)
+        if (listHits.Contains(Hero.Instance.gameObject))
         {
+            DamagePopup.Create(Hero.Instance.transform.localPosition, (int)_damageEnemy);
             Hero.Instance.GetDamage(_damageEnemy);
         }
+        // if (_playerInZoneAttack)
+        
+        
         _isAttack = true;
         Debug.Log("2");
 
