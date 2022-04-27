@@ -13,8 +13,16 @@ public class MovingEnemy : Entity
     private float _damageEnemy = 20f;
     [SerializeField]
     private bool _facingRight = false;
-    [SerializeField] 
+    [SerializeField]
     private LayerMask _layerMask;
+    [SerializeField]
+    private enum TypeEnemy
+    {
+        wolf, Bird
+    }
+    [SerializeField]
+    private TypeEnemy typeEnemy;
+    
 
     private List<GameObject> listHits;
     private bool _playerInZoneAttack;
@@ -38,13 +46,22 @@ public class MovingEnemy : Entity
     }
     void Update()
     {
-        animator.SetBool("IsAttack", !_isAttack);
-        Move(); 
-        if (InstanceEnemy == null)//??
+        switch (typeEnemy)
         {
-            InstanceEnemy = this;
+
+            case TypeEnemy.wolf:
+                animator.SetBool("IsAttack", !_isAttack);
+                Move();
+                if (InstanceEnemy == null)//??
+                {
+                    InstanceEnemy = this;
+                }
+                AttackOfEnemy();
+                break;
+            case TypeEnemy.Bird:
+                break;
         }
-        AttackOfEnemy();
+
     }
     private void Move()
     {

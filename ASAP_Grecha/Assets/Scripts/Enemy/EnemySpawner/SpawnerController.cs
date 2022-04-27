@@ -11,7 +11,10 @@ public class SpawnerController : MonoBehaviour
     private EnemySpawner[] _groundSpawner;*/
     [SerializeField]
     private int _maxEnemy;
-    protected GameObject _enemyPrefab;
+    [SerializeField]
+    protected GameObject _enemyWolfPrefab;
+    [SerializeField]
+    protected GameObject _enemyBirdPrefab;
     [SerializeField]
     private EnemySpawner _enemySpawner;
     [SerializeField]
@@ -38,10 +41,18 @@ public class SpawnerController : MonoBehaviour
         int SpavnerNumber ;
         while (enemyCounter > 0)
         {
+            int SpawnPlace = Random.Range(0, _spawners.Length);
             yield return new WaitForSeconds(1);
             enemyCounter--;
-            SpavnerNumber = Random.Range(0, _spawners.Length);
-            _spawners[SpavnerNumber].SpawnEnemy(this,_totem);
+            if (SpawnPlace < 2)
+            {
+                //SpavnerNumber = Random.Range(0, _spawners.Length);
+                _spawners[SpawnPlace].SpawnEnemy(_enemyBirdPrefab,this, _totem);
+            }
+            else
+            {
+                _spawners[SpawnPlace].SpawnEnemy(_enemyWolfPrefab, this, _totem);
+            }
         }
         Debug.Log("End spawn");
         _isNight = true;

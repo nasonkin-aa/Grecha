@@ -106,6 +106,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
+  typeEnemy: 1
   Totem: {fileID: 0}
   Hero: {fileID: 0}
   animator: {fileID: 0}
