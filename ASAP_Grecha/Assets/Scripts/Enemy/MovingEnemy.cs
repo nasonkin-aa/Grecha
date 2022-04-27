@@ -18,7 +18,8 @@ public class MovingEnemy : Entity
 
     private List<GameObject> listHits;
     private bool _playerInZoneAttack;
-    private bool _isAttack =true;
+    private bool _isAttack = true;
+    public GameObject lootDrop;
 
     public Totem Totem;
     public Hero Hero;
@@ -100,6 +101,8 @@ public class MovingEnemy : Entity
             SpawnerController.DethEmemy--;
             Debug.Log(SpawnerController.DethEmemy);
             Die();
+             
+            Instantiate(lootDrop, new Vector3(Random.Range(transform.localPosition.x + 1, transform.localPosition.x - 1),transform.localPosition.y,0), Quaternion.identity);
         }
         Debug.Log(_liveEnemy);
     }
