@@ -21,6 +21,7 @@ public class MovingEnemy : Entity
 
     public Totem Totem;
     public Hero Hero;
+    Animator animator;
 
     public SpawnerController SpawnerController;
     public static MovingEnemy InstanceEnemy { get; set; }
@@ -121,6 +122,7 @@ public class MovingEnemy : Entity
 
         if (listHits.Contains(Hero.Instance.gameObject) && _isAttack)
         {
+            animator.SetBool("IsAttack", true);
             _playerInZoneAttack = true;
             _isAttack = false;
             StartCoroutine(DelayAttack());
