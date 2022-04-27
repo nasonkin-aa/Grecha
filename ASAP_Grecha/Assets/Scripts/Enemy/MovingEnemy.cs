@@ -37,14 +37,13 @@ public class MovingEnemy : Entity
     }
     void Update()
     {
+        animator.SetBool("IsAttack", !_isAttack);
         Move(); 
         if (InstanceEnemy == null)//??
         {
             InstanceEnemy = this;
         }
         AttackOfEnemy();
-
-
     }
     private void Move()
     {
@@ -93,6 +92,7 @@ public class MovingEnemy : Entity
         if (_liveEnemy > 0)
         {
             _liveEnemy -= damage;
+            DamagePopup.Create(transform.position, (int) damage);
         } 
         if(_liveEnemy <= 0)
         {
@@ -122,7 +122,6 @@ public class MovingEnemy : Entity
 
         if (listHits.Contains(Hero.Instance.gameObject) && _isAttack)
         {
-            animator.SetBool("IsAttack", true);
             _playerInZoneAttack = true;
             _isAttack = false;
             //StartCoroutine(DelayAttack());
