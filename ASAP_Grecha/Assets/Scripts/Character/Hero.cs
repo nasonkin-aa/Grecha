@@ -7,7 +7,9 @@ public class Hero : Entity
     [SerializeField] 
     private float _speed = 0f;
     [SerializeField]
-    private float _livesHero = 100;
+    public float _livesHero = 100;
+    [SerializeField]
+    public float _maxLivesHero = 100;
     [SerializeField]
     private float _jumpForce = 5f;
     [SerializeField]
