@@ -16,6 +16,7 @@ public class Hero : Entity
     private Transform _firePoint;
     [SerializeField]
     public int soulCount = 0;
+    private PlayerSkills playerSkills;
 
 
     private Rigidbody2D _rigidbody;
@@ -37,8 +38,26 @@ public class Hero : Entity
     }
     private void Awake()
     {
+
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();    
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        playerSkills = new PlayerSkills();
+        playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
+    }
+    private void PlayerSkills_OnSkillUnlocked(object sender, PlayerSkills.OnSkillUnlockedEventArgs e)
+    {
+        switch (e.skillType)
+        {
+            case PlayerSkills.SkillType.Atack1:
+                Debug.Log("a1");
+                break;
+            case PlayerSkills.SkillType.Atack2:
+                Debug.Log("a2");
+                break;
+            case PlayerSkills.SkillType.Atack3:
+                Debug.Log("a3");
+                break;
+        }
     }
     private void FixedUpdate()
     {
@@ -98,4 +117,5 @@ public class Hero : Entity
         }
         Debug.Log(_livesHero);
     }
+
 }
