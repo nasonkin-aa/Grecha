@@ -39,17 +39,17 @@ public class Axe : MonoBehaviour
             }
         }
     }
-  /*  private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.GetComponent<MovingEnemy>())
         {
             Destroy(gameObject);
-            foreach(Collider2D a in collider)
+            foreach (Collider2D a in collider)
             {
                 a.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
                 break;
-            } 
+            }
         }
-    }*/
+    }
 
 }
