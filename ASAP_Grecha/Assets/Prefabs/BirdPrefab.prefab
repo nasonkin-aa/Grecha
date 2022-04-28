@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5780264034797994037}
   - component: {fileID: 5780264034797994036}
   - component: {fileID: 5780264034797994035}
+  - component: {fileID: 2014748129351531895}
   m_Layer: 6
   m_Name: BirdPrefab
   m_TagString: Untagged
@@ -107,12 +108,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   typeEnemy: 1
+  matBlink: {fileID: 0}
+  matDefault: {fileID: 0}
   lootDrop: {fileID: 806067450300971392, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
   Totem: {fileID: 0}
   Hero: {fileID: 0}
   animator: {fileID: 0}
   Camp: {fileID: 0}
   SpawnerController: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
 --- !u!58 &5780264034797994036
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +154,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &2014748129351531895
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780264034797994034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64e997a989b3d494e9f341d5cab39833, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

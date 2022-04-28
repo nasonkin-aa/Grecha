@@ -9,24 +9,31 @@ public class Hero : Entity
     [SerializeField]
     public float _livesHero = 100;
     [SerializeField]
-    public float _maxLivesHero = 100;
+    public float _maxLivesHero = 1000;
     [SerializeField]
     private float _jumpForce = 5f;
     [SerializeField]
     private Transform _firePoint;
     [SerializeField]
     public int soulCount = 0;
-    private PlayerSkills playerSkills;
+    public CameraController cameraController;
 
+    private Material matBlink;
+    private Material matDefault;
+    private Material matBlinkHeal;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private bool _isGrounded = false;
     private bool _facingRight = false;
+
     public static Hero Instance { get; set; }
     public Animator animator; 
     private void Start()
     {
+        matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
+        matBlinkHeal = Resources.Load("HealBlink", typeof(Material)) as Material;
+        matDefault = _spriteRenderer.material;
         if (Instance == null)
         {
             Instance = this;
@@ -65,6 +72,7 @@ public class Hero : Entity
     }
     private void Update()
     {
+        if (_maxLivesHero < _livesHero) _livesHero = _maxLivesHero;
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); // ������� � �������� �������� ���������
         animator.SetBool("IsJumping", !_isGrounded); // ������� � ��������, ��������� �� �� �� �����������
         if (Input.GetButton("Horizontal"))
@@ -107,8 +115,11 @@ public class Hero : Entity
     }
     public override void GetDamage(float damage)
     {
+        _spriteRenderer.material = matBlink;
+        cameraController.ShakeCamera();
         if (_livesHero > 0)
         {
+            Invoke("ResetMaterial", .2f);
             _livesHero -= damage;
         }
         else
@@ -118,4 +129,14 @@ public class Hero : Entity
         Debug.Log(_livesHero);
     }
 
+    public void HealMaterrial()
+    {
+        _spriteRenderer.material = matBlinkHeal;
+        Invoke("ResetMaterial", .1f);
+    }
+    void ResetMaterial()
+    {
+        _spriteRenderer.material = matDefault;
+    }
 }
+

@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro; // using text mesh for the clock display
 
 using UnityEngine.Rendering; // used to access the volume component
+using UnityEngine.Rendering.Universal;
 
 public class DayNight : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class DayNight : MonoBehaviour
     public float seconds;
     public int days = 0;
     public int secCycle = 20;
+    public float intesivityLight = 3.5f;
+    private bool LightTint1On = true;
+    private bool LightTint2On = true;
 
     public bool activateLights; // checks if lights are on
-    public GameObject[] lights; // all the lights we want on when its dark
+    public Light2D[] lights; // all the lights we want on when its dark
     public SpriteRenderer[] redLight; // star sprites 
     // Start is called before the first frame update
     void Start()
@@ -49,34 +53,46 @@ public class DayNight : MonoBehaviour
         if (days % 2 == 0)
         {
             ppv.weight = (float)seconds / secCycle;
-            if (activateLights == false) // if lights havent been turned on
+            for (int i = 0; i < lights.Length; i += 2)
             {
-                if (seconds > secCycle * 5 / 6) // wait until pretty dark
+                lights[i].intensity = ((float)seconds / secCycle) * intesivityLight;
+                if (LightTint1On)
                 {
-                    for (int i = 0; i < lights.Length; i++)
-                    {
-                        lights[i].SetActive(true); // turn them all on
-                    }
-                    activateLights = true;
+                    LightTint1On = false;
+                    Invoke("LightTint1", 0.09f);
+                    
                 }
             }
         }
         else
         {
             ppv.weight = 1 - (float)seconds / secCycle;
-            if (activateLights == true) // if lights are on
+            for (int i = 0; i < lights.Length; i += 2)
             {
-                if (seconds > secCycle * 2 / 6) // wait until pretty bright
+                lights[i].intensity = intesivityLight - ((float)seconds / secCycle) * intesivityLight;
+                if (LightTint2On)
                 {
-                    for (int i = 0; i < lights.Length; i++)
-                    {
-                        lights[i].SetActive(false); // shut them off
-                    }
-                    activateLights = false;
+                    LightTint2On = false;
+                    Invoke("LightTint2", 0.09f);
+
                 }
             }
         }
     }
+
+    public void LightTint1()
+    {
+        LightTint1On = true;
+        for (int i = 1; i < lights.Length; i += 2)
+            lights[i].intensity = lights[i - 1].intensity + Random.Range(-0.15f, 0.15f);
+    }
+    public void LightTint2()
+    {
+        LightTint2On = true;
+        for (int i = 1; i < lights.Length; i += 2)
+            lights[i].intensity = lights[i - 1].intensity + Random.Range(-0.15f, 0.15f);
+    }
+
 
     public void DisplayTime() // Shows time and day in ui
     {
