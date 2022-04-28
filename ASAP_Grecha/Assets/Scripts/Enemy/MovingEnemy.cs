@@ -74,7 +74,7 @@ public class MovingEnemy : Entity
     }
     private void MoveBird()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 2f);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 2.5f);
 
         List<GameObject> list = collider.ToList().ConvertAll(b => b.gameObject);
         if (list.Contains(Camp.transform.gameObject))
@@ -102,14 +102,14 @@ public class MovingEnemy : Entity
         {
             _dir = Hero.Instance.transform.position - transform.position;//fix
             _dir.y = 0;
-            _dir.z = -0.10f;
+            _dir.z = -1;
             _rb.velocity = _dir.normalized * _speedEnemy;
         }
         else
         {
             _dir = Totem.transform.position - transform.position;
             _dir.y = 0;
-            _dir.z = -0.10f;
+            _dir.z = -1f;
             _rb.velocity = _dir.normalized * _speedEnemy;
         }
 

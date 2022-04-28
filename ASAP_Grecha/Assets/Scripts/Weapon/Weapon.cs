@@ -13,13 +13,13 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-       /* if (Input.GetButtonDown("Fire1") && _attackFlag)
+        if (Input.GetButtonDown("Fire1") && _attackFlag)
         {
             _attackFlag = false;
             Shoot();
             CursorManager.Instance.SetActiveCursorType(CursorManager.CursorType.Reload);
             Invoke("AttackFlagOn", delayAttack);
-        }*/
+        }
     }
     void Shoot()
     {
