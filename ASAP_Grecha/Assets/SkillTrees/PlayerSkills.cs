@@ -17,9 +17,16 @@ public class PlayerSkills : MonoBehaviour
         Atack1,
         Atack2,
         Atack3,
+        Defence1,
+        Defence2,
+        Defence3,
+        Speed1,
+        Speed2,
+        Speed3,
+
     }
     private List<SkillType> unlockedSkillTypeList;
-    private int skillPoints = 2;
+    private int skillPoints = 10;
 
     public PlayerSkills()
     {
@@ -54,6 +61,10 @@ public class PlayerSkills : MonoBehaviour
         {
             case SkillType.Atack2: return SkillType.Atack1;
             case SkillType.Atack3: return SkillType.Atack2;
+            case SkillType.Defence2: return SkillType.Defence1;
+            case SkillType.Defence3: return SkillType.Defence2;
+            case SkillType.Speed2: return SkillType.Speed1;
+            case SkillType.Speed3: return SkillType.Speed2;
         }
         return SkillType.None;
     }

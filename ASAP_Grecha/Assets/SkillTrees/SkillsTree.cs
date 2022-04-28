@@ -42,7 +42,13 @@ public class SkillsTree : MonoBehaviour
         skillButtonList.Add(new SkillButton(transform.Find("Atack1"), playerSkills, PlayerSkills.SkillType.Atack1, skillLockedMaterial, skillUnlockableMaterial));
         skillButtonList.Add(new SkillButton(transform.Find("Atack2"), playerSkills, PlayerSkills.SkillType.Atack2, skillLockedMaterial, skillUnlockableMaterial));
         skillButtonList.Add(new SkillButton(transform.Find("Atack3"), playerSkills, PlayerSkills.SkillType.Atack3, skillLockedMaterial, skillUnlockableMaterial));
-       
+        skillButtonList.Add(new SkillButton(transform.Find("Defence1"), playerSkills, PlayerSkills.SkillType.Defence1, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Defence2"), playerSkills, PlayerSkills.SkillType.Defence2, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Defence3"), playerSkills, PlayerSkills.SkillType.Defence3, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Speed1"), playerSkills, PlayerSkills.SkillType.Speed1, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Speed2"), playerSkills, PlayerSkills.SkillType.Speed2, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Speed3"), playerSkills, PlayerSkills.SkillType.Speed3, skillLockedMaterial, skillUnlockableMaterial));
+
         playerSkills.OnSkillUnlocked += PlayerSkills_OnSkillUnlocked;
         playerSkills.OnSkillPointsChanged += PlayerSkills_OnSkillPointsChanged;
 
@@ -146,7 +152,7 @@ public class SkillsTree : MonoBehaviour
                 if (playerSkills.CanUnlock(skillType))
                 {
                     image.material = skillUnlockableMaterial;
-                    backgroundImage.color = Color.clear;
+                    backgroundImage.color = Color.blue;
                     transform.GetComponent<Button_UI>().enabled = true;
                 }
                 else

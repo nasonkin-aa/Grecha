@@ -41,7 +41,25 @@ public class Player : MonoBehaviour
             case PlayerSkills.SkillType.Atack3:
                 Debug.Log("c");
                 break;
-            
+            case PlayerSkills.SkillType.Speed1:
+                Debug.Log("a");
+                break;
+            case PlayerSkills.SkillType.Speed2:
+                Debug.Log("b");
+                break;
+            case PlayerSkills.SkillType.Speed3:
+                Debug.Log("c");
+                break;
+            case PlayerSkills.SkillType.Defence1:
+                Debug.Log("a");
+                break;
+            case PlayerSkills.SkillType.Defence2:
+                Debug.Log("b");
+                break;
+            case PlayerSkills.SkillType.Defence3:
+                Debug.Log("c");
+                break;
+
         }
     }
 
