@@ -6261,6 +6261,10 @@ PrefabInstance:
       propertyPath: _jumpForce
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 4589147167553478946, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 519420033}
     - target: {fileID: 4589147167553478947, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
       propertyPath: m_Sprite
       value: 

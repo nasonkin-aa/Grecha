@@ -22,6 +22,9 @@ public class MovingEnemy : Entity
     }
     [SerializeField]
     private TypeEnemy typeEnemy;
+
+    public Material matBlink;
+    public Material matDefault;
     
 
     private List<GameObject> listHits;
@@ -39,9 +42,12 @@ public class MovingEnemy : Entity
 
     private Vector3 _dir;
     private Rigidbody2D _rb;
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer _spriteRenderer;
     void Start()
     {
+        _spriteRenderer = GetComponent <SpriteRenderer>();
+        matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
+        matDefault = _spriteRenderer.material;
         _dir = Vector3.zero;
         _rb = transform.GetComponent<Rigidbody2D>();
         //Physics2D.IgnoreLayerCollision(6,7);
@@ -135,8 +141,10 @@ public class MovingEnemy : Entity
     } */
     public override void GetDamage(float damage)
     {
+        _spriteRenderer.material = matBlink;
         if (_liveEnemy > 0)
         {
+            Invoke("ResetMaterial", .2f);
             _liveEnemy -= damage;
             DamagePopup.Create(transform.localPosition, (int) damage);
         } 
@@ -149,6 +157,11 @@ public class MovingEnemy : Entity
             Instantiate(lootDrop, new Vector3(Random.Range(transform.localPosition.x + 1, transform.localPosition.x - 1),transform.localPosition.y,0), Quaternion.identity);
         }
         Debug.Log(_liveEnemy);
+    }
+
+    void ResetMaterial()
+    {
+        _spriteRenderer.material = matDefault;
     }
     private void AttackOfEnemy()
     {
