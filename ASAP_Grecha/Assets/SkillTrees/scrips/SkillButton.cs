@@ -7,18 +7,24 @@ using TMPro;
 public class SkillButton : MonoBehaviour
 {
     [SerializeField]
-    private Text skillDesText;
-    public Image skillImage;
+    private TMPro.TextMeshPro skillDesText;
 
     public int skillButtonId;//Each Button has one unique Button id correspond with the same order as the Skill array
-
+    [SerializeField]
+    private Animator anim; 
     //MARKER This method will be called when we press each skill
-    public void PressSkillButton()
+
+    private void OnMouseEnter()
     {
         Debug.Log("dasd");
         SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
-        skillImage.sprite = SkillManager.instance.skills[skillButtonId].skillSprite;
         skillDesText.text = SkillManager.instance.skills[skillButtonId].skillDes;
+        anim.SetBool("IsRightPanelOn", true);
+    }
+    private void OnMouseExit()
+    {
+        skillDesText.text = "";
+        anim.SetBool("IsRightPanelOn", false);
     }
 
 
