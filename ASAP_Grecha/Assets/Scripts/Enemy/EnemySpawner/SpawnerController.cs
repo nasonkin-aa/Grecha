@@ -30,7 +30,7 @@ public class SpawnerController : MonoBehaviour
     private bool _isNight = false;
     private int _maxVave = 0;
 
-    void Start()
+    void Awake()
     {
         _spawners = FindObjectsOfType<EnemySpawner>();
         StartCoroutine(Spawner());

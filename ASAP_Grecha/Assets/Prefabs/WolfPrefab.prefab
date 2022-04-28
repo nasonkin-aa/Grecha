@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa05a8da1d23ca3429d653d0fa8b7b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,10 +107,12 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 2147483647
+  typeEnemy: 0
   lootDrop: {fileID: 806067450300971392, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
   Totem: {fileID: 0}
   Hero: {fileID: 0}
   animator: {fileID: 6336499979513366814}
+  Camp: {fileID: 0}
   SpawnerController: {fileID: 0}
 --- !u!58 &4542462472553984224
 CircleCollider2D:
