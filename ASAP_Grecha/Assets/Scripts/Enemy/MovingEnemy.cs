@@ -68,6 +68,8 @@ public class MovingEnemy : Entity
                 AttackOfEnemy();
                 break;
             case TypeEnemy.Bird:
+                animator.SetBool("IsAttack", !_isAttack);
+                AttackOfEnemy();
                 MoveBird();
                 break;
         }
@@ -183,7 +185,8 @@ public class MovingEnemy : Entity
         listHits = raycastHit2D.ToList().ConvertAll(b => b.collider.gameObject);
         Debug.DrawRay(currentPosition, newPosition * 2.3f, Color.red);
 
-        if (listHits.Contains(Hero.Instance.gameObject) && _isAttack || listHits.Contains(Fence.InstanceFense.gameObject) && _isAttack || listHits.Contains(Fence2.InstanceFense2.gameObject) && _isAttack)
+        if (listHits.Contains(Hero.Instance.gameObject) && _isAttack || listHits.Contains(Fence.InstanceFense.gameObject) && _isAttack 
+            || listHits.Contains(Fence2.InstanceFense2.gameObject) && _isAttack || listHits.Contains(Camp.Instance.gameObject) && _isAttack)
         {
             //_playerInZoneAttack = true;
            // _speedEnemy = 0;
@@ -208,6 +211,11 @@ public class MovingEnemy : Entity
         {
             Debug.Log("gav");
             Fence2.InstanceFense2.GetDamage(_damageEnemy);
+        }
+        if (listHits.Contains(Camp.Instance.gameObject))
+        {
+            Debug.Log("gav");
+            Camp.Instance.GetDamage(_damageEnemy);
         }
         // if (_playerInZoneAttack)
         _isAttack = true;

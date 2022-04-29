@@ -113,8 +113,9 @@ MonoBehaviour:
   lootDrop: {fileID: 806067450300971392, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
   Totem: {fileID: 0}
   Hero: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 2014748129351531895}
   Camp: {fileID: 0}
+  fence: {fileID: 0}
   SpawnerController: {fileID: 0}
   _spriteRenderer: {fileID: 0}
 --- !u!58 &5780264034797994036
@@ -164,7 +165,7 @@ Animator:
   m_GameObject: {fileID: 5780264034797994034}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 64e997a989b3d494e9f341d5cab39833, type: 2}
+  m_Controller: {fileID: 9100000, guid: 00899b7cdc80cbe4e87a9c11d231ee5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

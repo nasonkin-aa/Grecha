@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camp : MonoBehaviour
+public class Camp : Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    public int liveCamp = 5;
+    public static Camp Instance{ get; set; }
+    private void Start()
     {
-        
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        
+        if (Instance == null)//??
+        {
+            Instance = this;
+        }
+
+    }
+    public override void GetDamage(float damage)
+    {
+        if (liveCamp > 0)
+        {
+            liveCamp -= (int)damage;
+        }
+        if (liveCamp <= 0)
+        {
+            Die();
+        }
+        Debug.Log(liveCamp);
     }
 }

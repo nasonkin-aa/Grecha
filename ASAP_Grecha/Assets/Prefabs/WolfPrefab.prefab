@@ -115,6 +115,7 @@ MonoBehaviour:
   Hero: {fileID: 0}
   animator: {fileID: 6336499979513366814}
   Camp: {fileID: 0}
+  fence: {fileID: 324594079315429543, guid: 40c9b55310d827f418448611611fc887, type: 3}
   SpawnerController: {fileID: 0}
   _spriteRenderer: {fileID: 0}
 --- !u!58 &4542462472553984224
