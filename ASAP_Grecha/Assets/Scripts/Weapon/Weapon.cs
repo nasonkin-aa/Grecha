@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject _bulletPrefab;
     public bool doubleAxe;
     private bool _attackFlag = true;
-    [SerializeField] public float delayAttack = 0.7f;
+    [SerializeField] public float delayAttack = 0.4f;
     //public int timeDelayAttack = 2;
 
     private void Update()

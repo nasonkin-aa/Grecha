@@ -14,7 +14,7 @@ public class updateSoulRemain : MonoBehaviour
     private void Awake()
     {
         soulRemain = transform.Find("soulRemain").GetComponent<TMPro.TextMeshPro>();
-        remainToUpgrade = 30;
+        remainToUpgrade = 10;
         countUpgrade = 0;
     }
     void Update()

@@ -168,6 +168,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _position: {x: 0, y: 0, z: 0}
+--- !u!114 &92626499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 324594079315429543, guid: 40c9b55310d827f418448611611fc887, type: 3}
+  m_PrefabInstance: {fileID: 1594828924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d86d521ba88b234c8147e9e8e2bf7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104035430
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +625,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &305522693
 MonoBehaviour:
@@ -1322,7 +1333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1408,7 +1419,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1499,7 +1510,7 @@ Transform:
   - {fileID: 1193514808}
   - {fileID: 742441672}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555081289
 GameObject:
@@ -2583,7 +2594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987968032
 GameObject:
@@ -3035,7 +3046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828462385810744009, guid: 949d709c70c553a4ebd23d52cf3a83fd, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8828462385810744009, guid: 949d709c70c553a4ebd23d52cf3a83fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4135,6 +4146,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1684767818521687133, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases HP
+      objectReference: {fileID: 0}
     - target: {fileID: 1684767818543723848, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_Layer
       value: 15
@@ -4171,6 +4186,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1684767818670041529, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases axe attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1684767818670041534, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
       value: 1
@@ -4182,6 +4201,10 @@ PrefabInstance:
     - target: {fileID: 1684767818821471976, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684767818922962120, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases protection of the fence
       objectReference: {fileID: 0}
     - target: {fileID: 1684767818922962125, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
@@ -4225,7 +4248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684767818984993509, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1684767818984993509, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4344,9 +4367,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1911179857}
     - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: fence
+      value: 
+      objectReference: {fileID: 92626499}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: animUI
       value: 
       objectReference: {fileID: 405754416}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: fence2
+      value: 
+      objectReference: {fileID: 2137752435}
     - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: weapon
       value: 
@@ -4395,9 +4426,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1684767819745947482, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases axe attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1684767819745947486, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684767819752055972, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases protection of the fence and HP
       objectReference: {fileID: 0}
     - target: {fileID: 1684767819752055977, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
@@ -4422,6 +4461,10 @@ PrefabInstance:
     - target: {fileID: 1684767819940364069, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684767819940364070, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: m_text
+      value: Choose your upgrade!
       objectReference: {fileID: 0}
     - target: {fileID: 1684767819940364071, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_SortingLayer
@@ -4467,7 +4510,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1684767819613055549, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
 --- !u!1 &1591954080
 GameObject:
@@ -4564,11 +4608,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.49
+      value: 3.4899988
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4584,15 +4636,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 324594079315429542, guid: 40c9b55310d827f418448611611fc887, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5794,7 +5846,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006087447
 GameObject:
@@ -5935,7 +5987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2076521401
 Transform:
@@ -5950,7 +6002,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134806981
 GameObject:
@@ -5986,7 +6038,7 @@ Transform:
   - {fileID: 199908620}
   - {fileID: 999710304}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137752431
 GameObject:
@@ -6098,7 +6150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2137752435
 MonoBehaviour:
@@ -6273,7 +6325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4589147167553478945, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
       propertyPath: delayAttack
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4589147167553478946, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
       propertyPath: animator
@@ -6301,7 +6353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4589147167553479132, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4589147167553479132, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
       propertyPath: m_LocalScale.x

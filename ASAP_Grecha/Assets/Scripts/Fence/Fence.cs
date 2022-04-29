@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fence : Entity
 {
-    public int liveFence = 300;
+    public int liveFence;
     public static Fence InstanceFense { get; set; }
     private void Start()
     {
@@ -23,6 +23,7 @@ public class Fence : Entity
         if (liveFence > 0)
         {
             liveFence -= (int)damage;
+            DamagePopup.Create(transform.localPosition, (int)damage);
         }
         if (liveFence <= 0)
         {
