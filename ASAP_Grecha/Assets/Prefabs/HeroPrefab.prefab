@@ -132,8 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3fd23d83a09c5439bea18977c37c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorManager:
+    cursorType: 0
+    textureArray: []
+    frameRate: 0
+    offset: {x: 0, y: 0}
   _firePoint: {fileID: 4589147166187947852}
   _bulletPrefab: {fileID: 249879771038340277, guid: 59675a7b50653b443a94f9bf5ec60c04, type: 3}
+  doubleAxe: 0
+  delayAttack: 0.7
 --- !u!114 &4589147167553478946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +155,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _livesHero: 100
+  _maxLivesHero: 1000
   _jumpForce: 15
   _firePoint: {fileID: 4589147166187947852}
+  soulCount: 0
+  cameraController: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &4589147167553478944
 BoxCollider2D:
   m_ObjectHideFlags: 0

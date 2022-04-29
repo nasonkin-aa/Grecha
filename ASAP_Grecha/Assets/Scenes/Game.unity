@@ -1209,12 +1209,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 4
-  Target: {fileID: 1760736383}
   Gun: {fileID: 948642799}
   bullet: {fileID: 2076521400}
   FireRate: 1
   Shootpoint: {fileID: 1437109065}
   Force: 400
+  ZonePlays: 0
+  listHits: []
 --- !u!1 &574973076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,6 +2401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e0d5948fc709544be21a7ebaaa3f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstRange: 0
+  lastRange: 0
   other: {fileID: 1193514806}
 --- !u!61 &1193514806
 BoxCollider2D:
@@ -3406,6 +3409,30 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -334723039
       objectReference: {fileID: 0}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 1912886115458774542, guid: 59675a7b50653b443a94f9bf5ec60c04, type: 3}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 1911179857}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: soul
+      value: 
+      objectReference: {fileID: 806067450300971455, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1911179858}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: pickupSoul
+      value: 
+      objectReference: {fileID: 806067450300971455, guid: 4a4001af047ef0c499cb9125d3ca884b, type: 3}
+    - target: {fileID: 1684767819433231017, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: bonfireHeal
+      value: 
+      objectReference: {fileID: 1193514805}
     - target: {fileID: 1684767819433231018, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_LocalPosition.y
       value: 919
@@ -4112,6 +4139,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1911179857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4589147167553478946, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
+  m_PrefabInstance: {fileID: 4589147166897952163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911179853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe171fd2ba27e0419728daa4ffd79de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1911179858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4589147167553478945, guid: 4b9038efa35b2b14f8d87f7e601f536a, type: 3}
+  m_PrefabInstance: {fileID: 4589147166897952163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911179853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3fd23d83a09c5439bea18977c37c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920670774
 GameObject:
   m_ObjectHideFlags: 0

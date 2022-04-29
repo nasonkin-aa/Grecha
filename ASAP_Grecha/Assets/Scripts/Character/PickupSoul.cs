@@ -6,17 +6,22 @@ public class PickupSoul : MonoBehaviour
 {
     public enum PickupObject {SOUL};
     public PickupObject currentObject;
-    public int pickupSomething = 69;
+    public int timeDieSoul;
+
+    private void Update()
+    {
+        Destroy(gameObject, timeDieSoul);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == Hero.Instance.gameObject)
         {   
-            if (currentObject == PickupObject.SOUL)
+            if (currentObject == PickupObject.SOUL && Hero.Instance.soulCount < Hero.Instance.soulCountMax)
             {
                 Debug.Log(Hero.Instance.soulCount);
                 //Hero.heroStats.soulCount += pickupSomething;
-                Hero.Instance.soulCount += pickupSomething;
+                Hero.Instance.soulCount += 1;
                 //Debug.Log(Hero.heroStats.soulCount);
             }
            Destroy(gameObject);
