@@ -63,7 +63,8 @@ public class Player : MonoBehaviour
                 break;
 
         }
-        animUI.SetBool("IsSkillTreeOn", false);
+        animUI.SetBool("IsUITreeOn", false);
+        Time.timeScale = 1f;
     }
 
  
