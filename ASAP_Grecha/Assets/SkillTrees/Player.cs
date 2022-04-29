@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         hero._maxLivesHero = 100;
         fence.liveFence = 500;
         fence2.liveFence = 500;
+        weapon.delayAttack = 0.5f;
     }
     private void Awake()
     {
@@ -41,13 +42,13 @@ public class Player : MonoBehaviour
         switch (e.skillType)
         {
             case PlayerSkills.SkillType.Atack1:
-                axe._damageAxe = axe._damageAxe * 1.5f;
+                weapon.delayAttack = 0.3f;
                 break;
             case PlayerSkills.SkillType.Atack2:
-                axe._damageAxe = axe._damageAxe * 1.5f;
+                weapon.doubleAxe = true;
                 break;
             case PlayerSkills.SkillType.Atack3:
-                weapon.doubleAxe = true;
+                axe._damageAxe = 100;
                 break;
             case PlayerSkills.SkillType.Speed1:
                 bonfireHeal.firstRange = 4;
