@@ -39,7 +39,7 @@ public class Axe : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+  /*  private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.GetComponent<MovingEnemy>())
         {
@@ -50,6 +50,6 @@ public class Axe : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
 }
