@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public bonfireHeal bonfireHeal;
     public PickupSoul pickupSoul;
     public Animator animUI;
+    public Fence fence;
+    public Fence2 fence2;
+
     private void Start()
     {
         axe._damageAxe = 50;
@@ -21,6 +24,10 @@ public class Player : MonoBehaviour
         bonfireHeal.lastRange = 4;
         hero.soulCountMax = 15;
         pickupSoul.timeDieSoul = 5;
+        hero._livesHero = 100;
+        hero._maxLivesHero = 100;
+        fence.liveFence = 500;
+        fence2.liveFence = 500;
     }
     private void Awake()
     {
@@ -53,13 +60,18 @@ public class Player : MonoBehaviour
                 pickupSoul.timeDieSoul = 10;
                 break;
             case PlayerSkills.SkillType.Defence1:
-                Debug.Log("a");
+                hero._livesHero = 200;
+                hero._maxLivesHero = 200;
                 break;
             case PlayerSkills.SkillType.Defence2:
-                Debug.Log("b");
+                fence.liveFence = 750;
+                fence2.liveFence = 750;
                 break;
             case PlayerSkills.SkillType.Defence3:
-                Debug.Log("c");
+                hero._livesHero = 300;
+                hero._maxLivesHero = 300;
+                fence.liveFence = 1000;
+                fence2.liveFence = 1000;
                 break;
 
         }

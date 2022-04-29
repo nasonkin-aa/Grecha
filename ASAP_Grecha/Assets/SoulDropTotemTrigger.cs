@@ -32,7 +32,7 @@ public class SoulDropTotemTrigger : MonoBehaviour
             {
                 animUI.SetBool("IsUITreeOn", true);
                 updateSoulRemain.countUpgrade -= updateSoulRemain.remainToUpgrade;
-                updateSoulRemain.remainToUpgrade += 15;
+                updateSoulRemain.remainToUpgrade += 5;
                 Invoke("GamePause", 0.3f);
             }
         }
