@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8164548816420650781}
   - component: {fileID: 7786437217365486599}
   - component: {fileID: 3572091331393755783}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: pfDamagePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,10 +56,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 475569072424278402, guid: 2bcf0f0e6495fb14c892a3ef581c4592, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,9 +77,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 581201505
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -334723039
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7786437217365486599
 MonoBehaviour:
@@ -103,8 +103,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bcf0f0e6495fb14c892a3ef581c4592, type: 2}
+  m_sharedMaterial: {fileID: 475569072424278402, guid: 2bcf0f0e6495fb14c892a3ef581c4592, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -164,13 +164,13 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 58}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 8164548816420650781}
   m_maskType: 0
 --- !u!114 &3572091331393755783
