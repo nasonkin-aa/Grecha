@@ -30,11 +30,17 @@ public class SoulDropTotemTrigger : MonoBehaviour
             Hero.Instance.soulCount = 0;
             if (updateSoulRemain.remainToUpgrade <= updateSoulRemain.countUpgrade)
             {
-                animUI.SetBool("IsSkillTreeOn", true);
+                animUI.SetBool("IsUITreeOn", true);
                 updateSoulRemain.countUpgrade -= updateSoulRemain.remainToUpgrade;
                 updateSoulRemain.remainToUpgrade += 15;
+                Invoke("GamePause", 0.3f);
             }
         }
         
+    }
+
+    private void GamePause()
+    {
+        Time.timeScale = 0f;
     }
 }

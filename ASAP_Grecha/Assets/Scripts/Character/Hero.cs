@@ -31,6 +31,11 @@ public class Hero : Entity
 
     public static Hero Instance { get; set; }
     public Animator animator; 
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
     private void Start()
     {
         matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
@@ -47,12 +52,17 @@ public class Hero : Entity
     }
     private void Awake()
     {
-
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     
     }
- 
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     private void FixedUpdate()
     {
         CheckGround(); 
