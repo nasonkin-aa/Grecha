@@ -43,7 +43,7 @@ public class SpawnerController : MonoBehaviour
         while (enemyCounter > 0)
         {
             int SpawnPlace = Random.Range(0, _spawners.Length);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(Random.Range(1,5));
             enemyCounter--;
             if (SpawnPlace < 2)
             {
@@ -56,17 +56,15 @@ public class SpawnerController : MonoBehaviour
             }
         }
         Debug.Log("End spawn");
-        _isNight = true;
-        _maxEnemy += 3;
     }
     private void Update()
     {
-      if( _isNight && _maxVave < 3 && DethEmemy == 0)
+      if( _isNight || DethEmemy == 0)
         {
-            Debug.Log("new vave");
+            Debug.Log("new wave");
             _maxVave++;
+            _maxEnemy +=3;
             StartCoroutine(Spawner());
-
         }
     }
 }

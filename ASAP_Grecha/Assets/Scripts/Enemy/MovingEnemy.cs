@@ -106,14 +106,14 @@ public class MovingEnemy : Entity
             _dir = Hero.Instance.transform.position - transform.position;//fix
             _dir.y = 0;
             _dir.z = -1;
-            _rb.velocity = _dir.normalized * _speedEnemy;
+            _rb.velocity = _dir.normalized * Random.Range(3,6);
         }
         else
         {
             _dir = Totem.transform.position - transform.position;
             _dir.y = 0;
             _dir.z = -1f;
-            _rb.velocity = _dir.normalized * _speedEnemy;
+            _rb.velocity = _dir.normalized * Random.Range(3, 6);
         }
 
         CheckeFlipp(); 
