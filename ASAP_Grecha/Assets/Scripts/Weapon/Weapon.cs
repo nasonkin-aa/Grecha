@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private CursorManager.CursorAnimation cursorManager;
     public Transform _firePoint;
     public GameObject _bulletPrefab;
+    public bool doubleAxe;
     private bool _attackFlag = true;
     [SerializeField] public float delayAttack = 0.7f;
     //public int timeDelayAttack = 2;
@@ -17,6 +18,7 @@ public class Weapon : MonoBehaviour
         {
             _attackFlag = false;
             Shoot();
+            if (doubleAxe) Invoke("Shoot", 0.1f);
             CursorManager.Instance.SetActiveCursorType(CursorManager.CursorType.Reload);
             Invoke("AttackFlagOn", delayAttack);
         }

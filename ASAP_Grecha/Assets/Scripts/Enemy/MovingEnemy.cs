@@ -156,8 +156,14 @@ public class MovingEnemy : Entity
             Die();
              
             Instantiate(lootDrop, new Vector3(Random.Range(transform.localPosition.x + 1, transform.localPosition.x - 1),transform.localPosition.y,0), Quaternion.identity);
+            Invoke("LootDropDestroy", 5f);
         }
         Debug.Log(_liveEnemy);
+    }
+
+    void LootDropDestroy()
+    {
+        Destroy(gameObject);
     }
 
     void ResetMaterial()

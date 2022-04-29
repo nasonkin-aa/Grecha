@@ -15,7 +15,9 @@ public class Hero : Entity
     [SerializeField]
     private Transform _firePoint;
     [SerializeField]
-    public int soulCount = 0;
+    public int soulCount;
+    [SerializeField]
+    public int soulCountMax;
     public CameraController cameraController;
 
     private Material matBlink;

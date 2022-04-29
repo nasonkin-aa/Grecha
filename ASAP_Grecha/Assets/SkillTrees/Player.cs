@@ -1,15 +1,3 @@
-/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +6,21 @@ using TMPro;
 public class Player : MonoBehaviour
 {
 
-    
     private PlayerSkills playerSkills;
-
+    public Axe axe;
+    public Hero hero;
+    public Weapon weapon;
+    public bonfireHeal bonfireHeal;
+    public PickupSoul pickupSoul;
+    private void Start()
+    {
+        axe._damageAxe = 50;
+        weapon.doubleAxe = false;
+        bonfireHeal.firstRange = 1;
+        bonfireHeal.lastRange = 4;
+        hero.soulCountMax = 15;
+        pickupSoul.timeDieSoul = 5;
+    }
     private void Awake()
     {
        
@@ -33,22 +33,23 @@ public class Player : MonoBehaviour
         switch (e.skillType)
         {
             case PlayerSkills.SkillType.Atack1:
-                Debug.Log("a");
+                axe._damageAxe = axe._damageAxe * 1.5f;
                 break;
             case PlayerSkills.SkillType.Atack2:
-                Debug.Log("b");
+                axe._damageAxe = axe._damageAxe * 1.5f;
                 break;
             case PlayerSkills.SkillType.Atack3:
-                Debug.Log("c");
+                weapon.doubleAxe = true;
                 break;
             case PlayerSkills.SkillType.Speed1:
-                Debug.Log("a");
+                bonfireHeal.firstRange = 4;
+                bonfireHeal.lastRange = 8;
                 break;
             case PlayerSkills.SkillType.Speed2:
-                Debug.Log("b");
+                hero.soulCountMax = 25;
                 break;
             case PlayerSkills.SkillType.Speed3:
-                Debug.Log("c");
+                pickupSoul.timeDieSoul = 10;
                 break;
             case PlayerSkills.SkillType.Defence1:
                 Debug.Log("a");
