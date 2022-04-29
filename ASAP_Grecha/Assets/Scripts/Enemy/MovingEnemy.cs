@@ -85,14 +85,14 @@ public class MovingEnemy : Entity
             _dir = Camp.transform.position - transform.position;
             //_dir.y = 0;
             _dir.z = -0.10f;
-            _rb.velocity = _dir.normalized * _speedEnemy;
+            _rb.velocity = _dir.normalized * 3;
         }
         else
         {
             _dir = Totem.transform.position - transform.position;//fix
             _dir.y = 0;
             _dir.z = -0.10f;
-            _rb.velocity = _dir.normalized * _speedEnemy;
+            _rb.velocity = _dir.normalized * 3;
         }
         CheckeFlipp();
     }
