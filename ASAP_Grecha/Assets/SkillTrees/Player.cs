@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Weapon weapon;
     public bonfireHeal bonfireHeal;
     public PickupSoul pickupSoul;
+    public Animator animUI;
     private void Start()
     {
         axe._damageAxe = 50;
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
                 break;
 
         }
+        animUI.SetBool("IsSkillTreeOn", false);
     }
 
  
