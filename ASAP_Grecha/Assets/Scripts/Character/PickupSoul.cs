@@ -15,9 +15,9 @@ public class PickupSoul : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == Hero.Instance.gameObject)
+        if (other.gameObject == Hero.Instance.gameObject && Hero.Instance.soulCount < Hero.Instance.soulCountMax)
         {   
-            if (currentObject == PickupObject.SOUL && Hero.Instance.soulCount < Hero.Instance.soulCountMax)
+            if (currentObject == PickupObject.SOUL)
             {
                 Debug.Log(Hero.Instance.soulCount);
                 //Hero.heroStats.soulCount += pickupSomething;

@@ -15,14 +15,12 @@ public class Axe : MonoBehaviour
 
     void Start()
     {
-        //_damageAxe = 40;
         Vector2 _mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 _derection = _mousPos - new Vector2(transform.position.x, transform.position.y);
         _rb.velocity = _derection.normalized * _speed;
     }
     void Update()
     {
-        _damageAxe = 40;
         OnAxeEnter();
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
     }
