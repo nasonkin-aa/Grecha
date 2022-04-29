@@ -8,10 +8,19 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Light
   - Water
   - UI
-  - ' enemy'
+  - Enemy
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - UI
   - 
   - 
   - 
@@ -27,16 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Global Light
   m_SortingLayers:
   - name: Bg
     uniqueID: 3300164477
