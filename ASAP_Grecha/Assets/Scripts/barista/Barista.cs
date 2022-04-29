@@ -75,7 +75,7 @@ public class Barista : MonoBehaviour
     }
     void shoot()
     {
-        Quaternion quaternion = Quaternion.Euler(0, 0, Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg);
+        GameObject BulletIns = Instantiate(bullet, Shootpoint.position, Quaternion.identity);
         GameObject BulletIns = Instantiate(bullet, Shootpoint.position, quaternion);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction.normalized * Force  );
     }
