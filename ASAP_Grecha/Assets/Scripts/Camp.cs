@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Camp : Entity
 {
@@ -27,6 +28,7 @@ public class Camp : Entity
         if (liveCamp <= 0)
         {
             Die();
+            SceneManager.LoadScene(2);
         }
         Debug.Log(liveCamp);
     }
