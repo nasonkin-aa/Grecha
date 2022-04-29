@@ -24,7 +24,6 @@ public class Axe : MonoBehaviour
         OnAxeEnter();
         transform.Rotate(0, 0, -1000f * Time.deltaTime);
     }
-
     private void OnAxeEnter()
     { 
         collider = Physics2D.OverlapCircleAll(transform.position, 0.7f);
