@@ -3955,6 +3955,10 @@ PrefabInstance:
       propertyPath: skillDes
       value: Increases HP
       objectReference: {fileID: 0}
+    - target: {fileID: 1684767818543723846, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+      propertyPath: skillDes
+      value: Increases axe attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1684767818543723848, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_Layer
       value: 15
@@ -3993,7 +3997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684767818670041529, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: skillDes
-      value: Increases axe attack
+      value: Doubles your axes
       objectReference: {fileID: 0}
     - target: {fileID: 1684767818670041534, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
@@ -4233,7 +4237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684767819745947482, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: skillDes
-      value: Increases axe attack
+      value: Increases axe speed
       objectReference: {fileID: 0}
     - target: {fileID: 1684767819745947486, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
       propertyPath: m_RaycastTarget
@@ -4317,6 +4321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1684767819613055549, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
+    - {fileID: 1684767818562211133, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69c34b3a3e42f8c41914166bb856ec47, type: 3}
 --- !u!1 &1591954080
 GameObject:
