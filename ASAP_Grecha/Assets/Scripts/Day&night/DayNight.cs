@@ -16,13 +16,13 @@ public class DayNight : MonoBehaviour
     public float seconds;
     public int days = 0;
     public int secCycle = 20;
-    public float intesivityLight = 3.5f;
+    [SerializeField] private float intesivityLight;
     private bool LightTint1On = true;
     private bool LightTint2On = true;
 
     public bool activateLights; // checks if lights are on
     public Light2D[] lights; // all the lights we want on when its dark
-    public SpriteRenderer[] redLight; // star sprites 
+    public Light2D[] redBlueLights;
     // Start is called before the first frame update
     void Start()
     {

@@ -9,11 +9,19 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Light
   - Water
   - UI
-  - ' enemy'
-  - Base
+  - Enemy
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - UI
   - 
   - 
   - 
@@ -29,24 +37,25 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Global Light
   m_SortingLayers:
   - name: Bg
     uniqueID: 3300164477
+    locked: 0
+  - name: BgOnScene
+    uniqueID: 2959408117
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player,Enemy
     uniqueID: 1454951419
+    locked: 0
+  - name: Light
+    uniqueID: 250504499
+    locked: 0
+  - name: OnBg
+    uniqueID: 1412549935
     locked: 0
   - name: UI
     uniqueID: 3960244257

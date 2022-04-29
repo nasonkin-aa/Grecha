@@ -8,11 +8,11 @@ public class Axe : MonoBehaviour
     private float _speed = 10f;
     [SerializeField]
     private Rigidbody2D _rb;
-    [SerializeField]
-    private float _damageAxe = 50;
+    public float _damageAxe ;
     private Collider2D[] collider;
-   /* [SerializeField]
-    private MovingEnemy _movingEnemy;*/
+    /* [SerializeField]
+     private MovingEnemy _movingEnemy;*/
+
     void Start()
     {
         Vector2 _mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -38,6 +38,11 @@ public class Axe : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void increasDamage(float attack)
+    {
+        _damageAxe *= attack;
     }
   /*  private void OnTriggerEnter2D(Collider2D collision)
     {
