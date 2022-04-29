@@ -36,6 +36,7 @@ public class MovingEnemy : Entity
     public Hero Hero;
     public Animator animator;
     public Camp Camp;
+    public Fence fence;
 
     public SpawnerController SpawnerController;
     public static MovingEnemy InstanceEnemy { get; set; }
@@ -177,14 +178,15 @@ public class MovingEnemy : Entity
 
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 newPosition =  velocity;
-        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,2.3f,_layerMask);
+        RaycastHit2D[] raycastHit2D = Physics2D.RaycastAll(currentPosition,newPosition,Random.Range(1f,2f));
 
         listHits = raycastHit2D.ToList().ConvertAll(b => b.collider.gameObject);
         Debug.DrawRay(currentPosition, newPosition * 2.3f, Color.red);
 
-        if (listHits.Contains(Hero.Instance.gameObject) && _isAttack)
+        if (listHits.Contains(Hero.Instance.gameObject) && _isAttack || listHits.Contains(Fence.InstanceFense.gameObject) && _isAttack || listHits.Contains(Fence2.InstanceFense2.gameObject) && _isAttack)
         {
             //_playerInZoneAttack = true;
+           // _speedEnemy = 0;
             _isAttack = false;
             Debug.Log("1");
         }
@@ -192,14 +194,25 @@ public class MovingEnemy : Entity
   
     public void PlayerInZoneAttack()
     {
-        if (listHits.Contains(Hero.Instance.gameObject))
+        if (listHits.Contains(Hero.Instance.gameObject) )
         {
             DamagePopup.Create(Hero.Instance.transform.localPosition, (int)_damageEnemy);
             Hero.Instance.GetDamage(_damageEnemy);
         }
+        if (listHits.Contains(Fence.InstanceFense.gameObject))
+            {
+            Debug.Log("gav");
+            Fence.InstanceFense.GetDamage(_damageEnemy);
+        }
+        if (listHits.Contains(Fence2.InstanceFense2.gameObject))
+        {
+            Debug.Log("gav");
+            Fence2.InstanceFense2.GetDamage(_damageEnemy);
+        }
         // if (_playerInZoneAttack)
         _isAttack = true;
         Debug.Log("2");
+       // _speedEnemy = 5;
 
     }
 

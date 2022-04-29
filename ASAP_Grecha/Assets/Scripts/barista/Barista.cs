@@ -62,7 +62,6 @@ public class Barista : MonoBehaviour
             }
         }
         
-            Debug.Log(Detected);
 
         if (Detected)
         {
