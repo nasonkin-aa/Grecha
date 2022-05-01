@@ -25,6 +25,8 @@ public class SpawnerController : MonoBehaviour
     private EnemySpawner[] _spawners ;
     [SerializeField]
     private Camp _camp;
+    public MovingEnemy movingEnemyWolf;
+    public MovingEnemy movingEnemyBird;
 
     public int DethEmemy;
     private bool _isNight = false;
@@ -34,6 +36,10 @@ public class SpawnerController : MonoBehaviour
     {
         _spawners = FindObjectsOfType<EnemySpawner>();
         StartCoroutine(Spawner());
+        movingEnemyWolf._speedEnemyWolf = 0;
+        movingEnemyBird._speedEnemyBird = 0;
+        movingEnemyWolf._liveEnemy = 55;
+        movingEnemyBird._liveEnemy = 55;
     }
 
     IEnumerator Spawner()
@@ -43,7 +49,7 @@ public class SpawnerController : MonoBehaviour
         while (enemyCounter > 0)
         {
             int SpawnPlace = Random.Range(0, _spawners.Length);
-            yield return new WaitForSeconds(Random.Range(1,5));
+            yield return new WaitForSeconds(Random.Range(0.2f,3 - (movingEnemyWolf._speedEnemyWolf)));
             enemyCounter--;
             if (SpawnPlace < 2)
             {
@@ -62,8 +68,12 @@ public class SpawnerController : MonoBehaviour
       if( _isNight || DethEmemy == 0)
         {
             Debug.Log("new wave");
+            movingEnemyBird._speedEnemyBird+= 0.1f;
+            movingEnemyWolf._speedEnemyWolf += 0.1f;
             _maxVave++;
-            _maxEnemy +=3;
+            _maxEnemy +=1;
+            movingEnemyBird._liveEnemy += 7;
+            movingEnemyWolf._liveEnemy += 7;
             StartCoroutine(Spawner());
         }
     }

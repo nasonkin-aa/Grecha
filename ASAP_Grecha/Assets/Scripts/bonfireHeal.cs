@@ -33,8 +33,7 @@ public class bonfireHeal : MonoBehaviour
             Hero.Instance._livesHero += healCount;
             Hero.Instance.HealMaterrial();
             Debug.Log("Hp: " + Hero.Instance._livesHero);
-            Invoke("HealDelay", 2f);
-            DamagePopup.Create(Hero.Instance.transform.localPosition, healCount);
+            Invoke("HealDelay", 1f);
         }
     }
 

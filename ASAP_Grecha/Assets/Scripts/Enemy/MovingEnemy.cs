@@ -6,11 +6,13 @@ using System.Linq;
 public class MovingEnemy : Entity
 {
     [SerializeField]
-    private float _speedEnemy = 5f;
+    public float _speedEnemyWolf = 0f;
     [SerializeField]
-    private float _liveEnemy = 100f;
+    public float _speedEnemyBird = 0f;
     [SerializeField]
-    private float _damageEnemy = 20f;
+    public float _liveEnemy;
+    [SerializeField]
+    private float _damageEnemy = 15f;
     [SerializeField]
     private bool _facingRight = false;
     [SerializeField]
@@ -85,14 +87,14 @@ public class MovingEnemy : Entity
             _dir = Camp.transform.position - transform.position;
             //_dir.y = 0;
             _dir.z = -0.10f;
-            _rb.velocity = _dir.normalized * 3;
+            _rb.velocity = _dir.normalized * (Random.Range(2, 4) + _speedEnemyBird);
         }
         else
         {
             _dir = Totem.transform.position - transform.position;//fix
             _dir.y = 0;
             _dir.z = -0.10f;
-            _rb.velocity = _dir.normalized * 3;
+            _rb.velocity = _dir.normalized * (Random.Range(2, 4) + _speedEnemyBird);
         }
         CheckeFlipp();
     }
@@ -106,14 +108,14 @@ public class MovingEnemy : Entity
             _dir = Hero.Instance.transform.position - transform.position;//fix
             _dir.y = 0;
             _dir.z = -1;
-            _rb.velocity = _dir.normalized * Random.Range(3,6);
+            _rb.velocity = _dir.normalized * (Random.Range(2.6f, 3.6f) + _speedEnemyWolf);
         }
         else
         {
             _dir = Totem.transform.position - transform.position;
             _dir.y = 0;
             _dir.z = -1f;
-            _rb.velocity = _dir.normalized * Random.Range(3, 6);
+            _rb.velocity = _dir.normalized * (Random.Range(2.6f, 3.6f) + _speedEnemyWolf);
         }
 
         CheckeFlipp(); 

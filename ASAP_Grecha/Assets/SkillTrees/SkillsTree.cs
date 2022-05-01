@@ -39,7 +39,8 @@ public class SkillsTree : MonoBehaviour
         this.playerSkills = playerSkills;
 
         skillButtonList = new List<SkillButton>();
-        skillButtonList.Add(new SkillButton(transform.Find("Atack1"), playerSkills, PlayerSkills.SkillType.Atack1, skillLockedMaterial, skillUnlockableMaterial));
+        skillButtonList.Add(new SkillButton(transform.Find("Atack1"), playerSkills, PlayerSkills.SkillType.Atack1,
+            skillLockedMaterial, skillUnlockableMaterial));
         skillButtonList.Add(new SkillButton(transform.Find("Atack2"), playerSkills, PlayerSkills.SkillType.Atack2, skillLockedMaterial, skillUnlockableMaterial));
         skillButtonList.Add(new SkillButton(transform.Find("Atack3"), playerSkills, PlayerSkills.SkillType.Atack3, skillLockedMaterial, skillUnlockableMaterial));
         skillButtonList.Add(new SkillButton(transform.Find("Defence1"), playerSkills, PlayerSkills.SkillType.Defence1, skillLockedMaterial, skillUnlockableMaterial));

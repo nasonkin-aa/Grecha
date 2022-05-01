@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Camp : Entity
 {
-    public int liveCamp = 5;
+    public int liveCamp;
     public static Camp Instance{ get; set; }
     private void Start()
     {
@@ -21,6 +21,7 @@ public class Camp : Entity
     }
     public override void GetDamage(float damage)
     {
+        DamagePopup.Create(transform.localPosition, (int)damage);
         if (liveCamp > 0)
         {
             liveCamp -= (int)damage;

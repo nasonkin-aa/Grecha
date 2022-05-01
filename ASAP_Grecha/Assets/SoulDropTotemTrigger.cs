@@ -24,7 +24,7 @@ public class SoulDropTotemTrigger : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && isTrigger)
+        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Mouse1)) && isTrigger)
         {
             updateSoulRemain.countUpgrade += Hero.Instance.soulCount;
             Hero.Instance.soulCount = 0;

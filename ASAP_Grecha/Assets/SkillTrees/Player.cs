@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public Animator animUI;
     public Fence fence;
     public Fence2 fence2;
-
+    public Camp camp;
     private void Start()
     {
         axe._damageAxe = 50;
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         fence.liveFence = 500;
         fence2.liveFence = 500;
         weapon.delayAttack = 0.5f;
+        camp.liveCamp = 300;
     }
     private void Awake()
     {
@@ -61,18 +62,21 @@ public class Player : MonoBehaviour
                 pickupSoul.timeDieSoul = 10;
                 break;
             case PlayerSkills.SkillType.Defence1:
-                hero._livesHero = 200;
-                hero._maxLivesHero = 200;
-                break;
-            case PlayerSkills.SkillType.Defence2:
                 fence.liveFence = 750;
                 fence2.liveFence = 750;
+                camp.liveCamp = 300;
+                break;
+            case PlayerSkills.SkillType.Defence2:
+                hero._livesHero = 200;
+                hero._maxLivesHero = 200;
+                camp.liveCamp = 300;
                 break;
             case PlayerSkills.SkillType.Defence3:
                 hero._livesHero = 300;
                 hero._maxLivesHero = 300;
                 fence.liveFence = 1000;
                 fence2.liveFence = 1000;
+                camp.liveCamp = 300;
                 break;
 
         }

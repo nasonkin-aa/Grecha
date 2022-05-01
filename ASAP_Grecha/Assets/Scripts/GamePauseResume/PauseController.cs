@@ -5,6 +5,11 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
     bool IsGamePlay = true;
+    private TMPro.TextMeshPro PAUSE;
+    private void Awake()
+    {
+        PAUSE = transform.Find("PAUSE").GetComponent<TMPro.TextMeshPro>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -13,12 +18,15 @@ public class PauseController : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 IsGamePlay = false;
+                PAUSE.SetText("=");
             }
             else
             {
                 Time.timeScale = 1f;
                 IsGamePlay = true;
+                PAUSE.SetText("");
             }
         }
     }
+    
 }
