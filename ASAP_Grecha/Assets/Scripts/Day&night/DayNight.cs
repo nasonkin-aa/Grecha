@@ -11,11 +11,12 @@ public class DayNight : MonoBehaviour
 {
     public TextMeshProUGUI timeDisplay; // Display Time
     public Volume ppv; // this is the post processing volume
+    public SpawnerController spawnerController;
 
     public float tick; // Increasing the tick, increases second rate
     public float seconds;
     public int days = 0;
-    public int secCycle = 20;
+    public int secCycle;
     [SerializeField] private float intesivityLight;
     private bool LightTint1On = true;
     private bool LightTint2On = true;
@@ -27,6 +28,7 @@ public class DayNight : MonoBehaviour
     void Start()
     {
         ppv = gameObject.GetComponent<Volume>();
+        secCycle = 60;
     }
 
     // Update is called once per frame
@@ -34,7 +36,6 @@ public class DayNight : MonoBehaviour
     {
         CalcTime();
         DisplayTime();
-
     }
 
     public void CalcTime() // Used to calculate sec, min and hours
@@ -60,7 +61,6 @@ public class DayNight : MonoBehaviour
                 {
                     LightTint1On = false;
                     Invoke("LightTint1", 0.09f);
-                    
                 }
             }
         }

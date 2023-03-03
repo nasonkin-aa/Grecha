@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public Animator animUI;
     public Fence fence;
     public Fence2 fence2;
-
+    public Camp camp;
     private void Start()
     {
         axe._damageAxe = 50;
@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
         hero._maxLivesHero = 100;
         fence.liveFence = 500;
         fence2.liveFence = 500;
+        weapon.delayAttack = 0.5f;
+        camp.liveCamp = 300;
     }
     private void Awake()
     {
@@ -41,13 +43,13 @@ public class Player : MonoBehaviour
         switch (e.skillType)
         {
             case PlayerSkills.SkillType.Atack1:
-                axe._damageAxe = axe._damageAxe * 1.5f;
+                weapon.delayAttack = 0.3f;
                 break;
             case PlayerSkills.SkillType.Atack2:
-                axe._damageAxe = axe._damageAxe * 1.5f;
+                weapon.doubleAxe = true;
                 break;
             case PlayerSkills.SkillType.Atack3:
-                weapon.doubleAxe = true;
+                axe._damageAxe = 100;
                 break;
             case PlayerSkills.SkillType.Speed1:
                 bonfireHeal.firstRange = 4;
@@ -60,18 +62,21 @@ public class Player : MonoBehaviour
                 pickupSoul.timeDieSoul = 10;
                 break;
             case PlayerSkills.SkillType.Defence1:
-                hero._livesHero = 200;
-                hero._maxLivesHero = 200;
-                break;
-            case PlayerSkills.SkillType.Defence2:
                 fence.liveFence = 750;
                 fence2.liveFence = 750;
+                camp.liveCamp = 300;
+                break;
+            case PlayerSkills.SkillType.Defence2:
+                hero._livesHero = 200;
+                hero._maxLivesHero = 200;
+                camp.liveCamp = 300;
                 break;
             case PlayerSkills.SkillType.Defence3:
                 hero._livesHero = 300;
                 hero._maxLivesHero = 300;
                 fence.liveFence = 1000;
                 fence2.liveFence = 1000;
+                camp.liveCamp = 300;
                 break;
 
         }

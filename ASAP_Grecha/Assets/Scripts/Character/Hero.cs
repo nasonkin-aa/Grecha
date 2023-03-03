@@ -18,6 +18,10 @@ public class Hero : Entity
     public int soulCount;
     [SerializeField]
     public int soulCountMax;
+    [SerializeField]
+    public BoxCollider2D coliderJump;
+    [SerializeField]
+    public LayerMask layer;
     public CameraController cameraController;
 
     private Material matBlink;
@@ -28,6 +32,7 @@ public class Hero : Entity
     private SpriteRenderer _spriteRenderer;
     private bool _isGrounded = false;
     private bool _facingRight = false;
+    
 
     public static Hero Instance { get; set; }
     public Animator animator; 
@@ -65,10 +70,11 @@ public class Hero : Entity
 
     private void FixedUpdate()
     {
-        CheckGround(); 
+         
     }
     private void Update()
     {
+        CheckGround();
         if (_maxLivesHero < _livesHero) _livesHero = _maxLivesHero;
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal"))); // ������� � �������� �������� ���������
         animator.SetBool("IsJumping", !_isGrounded); // ������� � ��������, ��������� �� �� �� �����������
@@ -107,17 +113,19 @@ public class Hero : Entity
     }
     private void CheckGround()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 1.5f);
-        _isGrounded = collider.Length > 1;
+        Vector3 a = transform.position;
+        a.y -= 1.5f;
+        Collider2D[] collider = Physics2D.OverlapCircleAll(a, 0.4f, layer);
+        _isGrounded = collider.Length > 0;
     }
     public override void GetDamage(float damage)
     {
         _spriteRenderer.material = matBlink;
         cameraController.ShakeCamera();
+        _livesHero -= damage;
         if (_livesHero > 0)
         {
             Invoke("ResetMaterial", .2f);
-            _livesHero -= damage;
         }
         else
         {

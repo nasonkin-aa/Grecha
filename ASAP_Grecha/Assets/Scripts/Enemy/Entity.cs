@@ -9,7 +9,6 @@ public class Entity : MonoBehaviour
     public virtual void Die()
     {
         this.gameObject.SetActive(false);
-        //Destroy(this.gameObject);
     }
    // public virtual void SetDamage(float damage) {}
 }

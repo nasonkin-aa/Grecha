@@ -32,11 +32,17 @@ public class Axe : MonoBehaviour
         {
             if (a.transform.GetComponent<MovingEnemy>())
             {
-                a.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxe);
+                float _damageAxeint = _damageAxe + Random.Range(5, 30);
+                if (Random.Range(1,10) == 3)
+                {
+                    _damageAxeint += 50;
+                }
+                a.transform.GetComponent<MovingEnemy>().GetDamage(_damageAxeint);
                 Destroy(gameObject);
                 break;
             }
         }
+        Destroy(gameObject, 7f);
     }
 
     public void increasDamage(float attack)
