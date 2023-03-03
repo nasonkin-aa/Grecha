@@ -8,7 +8,8 @@ public class Entity : MonoBehaviour
     public virtual void GetDamage(float damage) {}
     public virtual void Die()
     {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject);
     }
    // public virtual void SetDamage(float damage) {}
 }

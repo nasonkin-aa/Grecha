@@ -13,8 +13,6 @@ public class Barista : MonoBehaviour
     float nextTimeToFire = 0;
     public Transform Shootpoint;
     public float Force;
-
- 
     void Update()
     {
         Vector2 targetPos = Target.position;
