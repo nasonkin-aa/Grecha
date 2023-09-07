@@ -38,8 +38,8 @@ public class SpawnerController : MonoBehaviour
         StartCoroutine(Spawner());
         movingEnemyWolf._speedEnemyWolf = 0;
         movingEnemyBird._speedEnemyBird = 0;
-        movingEnemyWolf._liveEnemy = 55;
-        movingEnemyBird._liveEnemy = 55;
+        movingEnemyWolf._liveEnemy = 150;
+        movingEnemyBird._liveEnemy = 100;
     }
 
     IEnumerator Spawner()

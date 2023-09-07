@@ -231,7 +231,4 @@ public class MovingEnemy : Entity
        // _speedEnemy = 5;
 
     }
-
-
-
 }
